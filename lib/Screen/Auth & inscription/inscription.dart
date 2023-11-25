@@ -2,7 +2,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:front_mali_event/Screen/authentification.dart';
+import 'package:front_mali_event/Screen/Auth%20&%20inscription/authentification.dart';
 
 class Inscription extends StatefulWidget {
   const Inscription({super.key});
