@@ -166,13 +166,6 @@ class _DetailsEventState extends State<DetailsEvent> {
                     SizedBox(
                       height: size.height * .02,
                     ),
-                    Divider(
-                      color: Colors.red,
-                      thickness: 15,
-                      height: 1,
-                      indent: 2,
-                      endIndent: 100,
-                    ),
 
                     //=======================================================
                     //========== Container contenant les acces ==========
@@ -190,10 +183,26 @@ class _DetailsEventState extends State<DetailsEvent> {
                       SizedBox(
                         width: size.width * .02,
                       ),
+                      Container(
+                        width: 10,
+                        child: Divider(
+                          color: texte,
+                          thickness: 15,
+                          endIndent: 7,
+                        ),
+                      ),
                       Text("Carte: ", style: TextStyle(color: texte)),
                       Text("5000 F ", style: TextStyle(color: Colors.white)),
                       SizedBox(
                         width: size.width * .02,
+                      ),
+                      Container(
+                        width: 10,
+                        child: Divider(
+                          color: texte,
+                          thickness: 15,
+                          endIndent: 7,
+                        ),
                       ),
                       Text("VIP: ", style: TextStyle(color: texte)),
                       Text("10000 F ", style: TextStyle(color: Colors.white)),
@@ -253,12 +262,16 @@ class _DetailsEventState extends State<DetailsEvent> {
                         SizedBox(
                           width: size.width * .02,
                         ),
-                        Divider(
-                          color: Colors.red,
-                          thickness: 10,
-                          height: 10.0,
-                          indent: 5,
-                          endIndent: 5,
+                        Container(
+                          width: 10,
+                          child: Divider(
+                            color: texte,
+                            thickness: 5,
+                            endIndent: 1,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 5,
                         ),
                         Text("Moussou Sora ", style: TextStyle(color: texte)),
                         SizedBox(
