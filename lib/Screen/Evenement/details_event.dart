@@ -94,6 +94,9 @@ class _DetailsEventState extends State<DetailsEvent> {
                                     fontSize: 22,
                                     fontWeight: FontWeight.bold),
                               ),
+                              const SizedBox(
+                                height: 10,
+                              ),
                               Row(
                                 children: const [
                                   Icon(
@@ -102,6 +105,7 @@ class _DetailsEventState extends State<DetailsEvent> {
                                   ),
                                   SizedBox(
                                     width: 5,
+                                    height: 10,
                                   ),
                                   Text(
                                     'Place de la cinquantenaire',
@@ -161,6 +165,13 @@ class _DetailsEventState extends State<DetailsEvent> {
 
                     SizedBox(
                       height: size.height * .02,
+                    ),
+                    Divider(
+                      color: Colors.red,
+                      thickness: 15,
+                      height: 1,
+                      indent: 2,
+                      endIndent: 100,
                     ),
 
                     //=======================================================
@@ -241,6 +252,13 @@ class _DetailsEventState extends State<DetailsEvent> {
                         Text("Moussou Sora ", style: TextStyle(color: texte)),
                         SizedBox(
                           width: size.width * .02,
+                        ),
+                        Divider(
+                          color: Colors.red,
+                          thickness: 10,
+                          height: 10.0,
+                          indent: 5,
+                          endIndent: 5,
                         ),
                         Text("Moussou Sora ", style: TextStyle(color: texte)),
                         SizedBox(
