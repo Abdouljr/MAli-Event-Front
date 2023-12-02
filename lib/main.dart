@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'Screen/Home_event.dart';
+import 'Screen/artistes/details.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -14,10 +15,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const AccueilEvent(),
+      home: const DetailsArtiste(),
     );
   }
 }
