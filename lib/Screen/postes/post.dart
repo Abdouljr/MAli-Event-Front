@@ -10,15 +10,46 @@ class PostPage extends StatefulWidget {
 class _PostPageState extends State<PostPage> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
         body: Container(
-            height: MediaQuery.of(context).size.height,
+            height: size.height,
+            width: size.width,
             decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage("assets/images/post.png"),
                   fit: BoxFit.fill),
             ),
             padding: const EdgeInsets.only(left: 5, right: 5),
-            child: SingleChildScrollView()));
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(top: 20),
+                    height: MediaQuery.of(context).size.height * .08,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          "Posts",
+                          style: TextStyle(color: Colors.white, fontSize: 30),
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.search_sharp),
+                          iconSize: 30,
+                          color: Colors.white,
+                          onPressed: () {
+                            // MaterialPageRoute(builder: (context))
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                ],
+              ),
+            )));
   }
 }

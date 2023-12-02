@@ -25,7 +25,7 @@ class _AccueilEventState extends State<AccueilEvent> {
         child: Column(
           children: [
             Container(
-              margin: EdgeInsets.only(top: 20),
+              margin: const EdgeInsets.only(top: 20),
               height: MediaQuery.of(context).size.height * .08,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
