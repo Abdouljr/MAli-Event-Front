@@ -226,10 +226,10 @@ class _DetailsEventState extends State<DetailsEvent> {
                       height: size.height * .02,
                     ),
 
-                    //=======================================================
+                    //==============================================================
                     //========== Container contenant les artistes invites ===========
                     const Text(
-                      "Parrainage",
+                      "Artistes Invités",
                       style: TextStyle(
                           fontWeight: FontWeight.w800, color: Colors.white),
                     ),
@@ -255,7 +255,7 @@ class _DetailsEventState extends State<DetailsEvent> {
                     //=======================================================
                     //========== Container contenant les Sponsors ===========
                     const Text(
-                      "Parrainage",
+                      "Sponsors",
                       style: TextStyle(
                           fontWeight: FontWeight.w800, color: Colors.white),
                     ),
