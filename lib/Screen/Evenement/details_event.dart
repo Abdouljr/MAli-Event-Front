@@ -191,8 +191,8 @@ class _DetailsEventState extends State<DetailsEvent> {
                       height: size.height * .02,
                     ),
 
-                    //=======================================================
-                    //========== Container contenant les parrainages ==========
+                    //===========================================================
+                    //========== Container contenant les parrainages ============
                     const Text(
                       "Parrainage",
                       style: TextStyle(
