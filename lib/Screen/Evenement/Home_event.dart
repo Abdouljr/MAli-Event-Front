@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:front_mali_event/widget/entete_titre_icon.dart';
 
 import '../../widget/postEvent.dart';
 
@@ -26,27 +27,7 @@ class _AccueilEventState extends State<AccueilEvent> {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              margin: const EdgeInsets.only(top: 20),
-              height: MediaQuery.of(context).size.height * .08,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    "Accueil",
-                    style: TextStyle(color: Colors.white, fontSize: 30),
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.search_sharp),
-                    iconSize: 30,
-                    color: Colors.white,
-                    onPressed: () {
-                      // MaterialPageRoute(builder: (context))
-                    },
-                  ),
-                ],
-              ),
-            ),
+            entete(),
             const SizedBox(
               height: 10,
             ),
