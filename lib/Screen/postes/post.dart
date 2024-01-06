@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:front_mali_event/Screen/postes/post_widget.dart';
+import 'package:front_mali_event/Screen/postes/stories_widget.dart';
 
 class PostPage extends StatefulWidget {
   const PostPage({super.key});
@@ -48,6 +50,8 @@ class _PostPageState extends State<PostPage> {
                   const SizedBox(
                     height: 10,
                   ),
+                  Storieswidget(),
+                  Postwidget()
                 ],
               ),
             )));
