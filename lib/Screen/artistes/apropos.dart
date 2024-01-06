@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+
 
 class Apropos extends StatelessWidget {
   const Apropos({super.key});
@@ -8,10 +7,10 @@ class Apropos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF0F2D42),
+      backgroundColor: const Color(0xFF0F2D42),
       body: Column(
         children: <Widget>[
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           Container(
@@ -22,7 +21,7 @@ class Apropos extends StatelessWidget {
               ),
               borderRadius: BorderRadius.circular(12),
             ),
-            child: Column(
+            child: const Column(
               children: <Widget>[
                 Padding(
                   padding: EdgeInsets.only(

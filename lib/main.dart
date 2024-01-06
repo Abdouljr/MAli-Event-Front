@@ -6,6 +6,7 @@ import 'Screen/Favories/favorie artiste/favorie_artiste.dart';
 
 void main() {
   runApp(const MyApp());
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 }
 
 class MyApp extends StatelessWidget {
