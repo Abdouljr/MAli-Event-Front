@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:front_mali_event/Screen/Evenement/Home_event.dart';
+import 'package:flutter/services.dart';
 import 'package:front_mali_event/Screen/postes/post.dart';
 
 void main() {
   runApp(const MyApp());
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
 }
 
 class MyApp extends StatelessWidget {

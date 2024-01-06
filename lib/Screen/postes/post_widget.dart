@@ -70,55 +70,85 @@ class Postwidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return Column(
         children: postItems.map((e) {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            margin: const EdgeInsets.only(top: 10),
-            height: 50,
-            child: Row(
-              children: [
-                CircleAvatar(
-                  backgroundImage: AssetImage(e["profil"]),
+        children: <Widget>[
+          const Row(
+            children: <Widget>[
+              CircleAvatar(
+                radius: 30,
+                backgroundColor: Colors.white,
+                child: Stack(
+                  children: <Widget>[
+                    CircleAvatar(
+                      radius: 28,
+                      backgroundImage: AssetImage('assets/images/sdiki.jpeg'),
+                    ),
+                  ],
                 ),
-                const SizedBox(
-                  width: 10,
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      'Sidiki Diabaté',
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
+                    SizedBox(
+                      height: 8,
+                    ),
+                    Text(
+                      '27 Novembre 2023',
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w300,
+                          color: Colors.white),
+                    ),
+                  ],
                 ),
-                Text(
-                  e['pseudo'],
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
-                ),
-                Image.asset(
-                  'assets/images/badge.png',
-                  height: 35,
-                ),
-                Expanded(
-                  child: Container(),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.more_horiz),
-                ),
-              ],
-            ),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          const Text(
+            'Album en cours preparez-vous les fans',
+            style: TextStyle(
+                fontSize: 16, fontWeight: FontWeight.w300, color: Colors.white),
+          ),
+          const SizedBox(
+            height: 5,
           ),
           Container(
-            // margin: const EdgeInsets.symmetric(horizontal: 10),
-            height: 300,
-            decoration: BoxDecoration(
-              // borderRadius: BorderRadius.circular(10),
+            decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(
-                  e["post"],
-                ),
+                image: AssetImage('assets/images/sdiki.jpeg'),
                 fit: BoxFit.cover,
               ),
             ),
+            width: double.infinity,
+            height: size.height * .3,
           ),
+          Container(
+            height: 60,
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(15.0),
+                bottomRight: Radius.circular(15.0),
+              ),
+            ),
+          )
         ],
       );
     }).toList());

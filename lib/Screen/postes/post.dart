@@ -51,6 +51,9 @@ class _PostPageState extends State<PostPage> {
                     height: 10,
                   ),
                   Storieswidget(),
+                  const SizedBox(
+                    height: 24,
+                  ),
                   Postwidget()
                 ],
               ),
