@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'Screen/Home_event.dart';
 import 'Screen/artistes/details.dart';
+import 'Screen/profil/profil.dart';
 
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const DetailsArtiste(),
+      home: const Profil(),
     );
   }
 }
