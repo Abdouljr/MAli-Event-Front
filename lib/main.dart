@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:front_mali_event/Screen/postes/commentaire.dart';
 import 'package:front_mali_event/Screen/postes/post.dart';
 
 void main() {
   runApp(const MyApp());
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 }
 
 class MyApp extends StatelessWidget {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'Mali event',
       debugShowCheckedModeBanner: false,
-      home: PostPage(),
+      home: CommentairePost(),
     );
   }
 }
