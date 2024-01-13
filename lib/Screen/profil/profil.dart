@@ -8,6 +8,7 @@ class Profil extends StatefulWidget {
   const Profil({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _ProfilState createState() => _ProfilState();
 }
 
@@ -29,18 +30,18 @@ class _ProfilState extends State<Profil> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF0F2D42),
+      backgroundColor: const Color(0xFF0F2D42),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 60),
+           const SizedBox(height: 60),
             Stack(
               children: [
                 Container(
                   width: MediaQuery.of(context).size.width * 1,
                   height: 200,
                   decoration: BoxDecoration(
-                    color: Color(0xFF0E3751),
+                    color:const Color(0xFF0E3751),
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Padding(
@@ -52,8 +53,8 @@ class _ProfilState extends State<Profil> with SingleTickerProviderStateMixin {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: 45),
-                        Text(
+                      const  SizedBox(height: 45),
+                      const  Text(
                           'Sidiki Diabaté',
                           style: TextStyle(
                             fontSize: 25,
@@ -61,9 +62,9 @@ class _ProfilState extends State<Profil> with SingleTickerProviderStateMixin {
                             color: Colors.white,
                           ),
                         ),
-                        SizedBox(height: 16),
+                       const SizedBox(height: 16),
                         Row(
-                          children: <Widget>[
+                          children: const <Widget>[
                             Text(
                               'Dmusic',
                               style: TextStyle(
@@ -80,9 +81,9 @@ class _ProfilState extends State<Profil> with SingleTickerProviderStateMixin {
                             )
                           ],
                         ),
-                        SizedBox(height: 10),
+                       const SizedBox(height: 10),
                         Row(
-                          children: <Widget>[
+                          children: const <Widget>[
                             Text(
                               ' 91 22 88 20',
                               style: TextStyle(
@@ -105,10 +106,10 @@ class _ProfilState extends State<Profil> with SingleTickerProviderStateMixin {
                           borderRadius: BorderRadius.circular(40 + 52),
                           border: Border.all(
                             width: 8,
-                            color: Color(0xFF1B252F),
+                            color: const Color(0xFF1B252F),
                           ),
                         ),
-                        child: CircleAvatar(
+                        child: const CircleAvatar(
                           radius: 40,
                           backgroundImage:
                               AssetImage('assets/images/sdiki.jpeg'),
@@ -117,13 +118,13 @@ class _ProfilState extends State<Profil> with SingleTickerProviderStateMixin {
                       Positioned(
                         top: 30,
                         left: 49,
-                        child: Container(
-                          padding: EdgeInsets.all(4),
-                          decoration: BoxDecoration(
+                        child:  Container(
+                          padding: const EdgeInsets.all(4),
+                          decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                             color: Color(0xFF0094ED),
                           ),
-                          child: Icon(
+                          child: const Icon(
                             Icons.edit_square,
                             color: Colors.white,
                             size: 22,
@@ -133,7 +134,7 @@ class _ProfilState extends State<Profil> with SingleTickerProviderStateMixin {
                     ],
                   ),
                 ),
-                Positioned(
+                const Positioned(
                   right: 16,
                   top: 16,
                   child: Text(
@@ -149,7 +150,7 @@ class _ProfilState extends State<Profil> with SingleTickerProviderStateMixin {
             ),
             TabBar(
               controller: _tabController,
-              tabs: [
+              tabs: const [
                 Tab(text: 'Publications'),
                 Tab(text: 'Paramètre du compte'),
               ],
@@ -160,7 +161,7 @@ class _ProfilState extends State<Profil> with SingleTickerProviderStateMixin {
                 height: MediaQuery.of(context).size.height - 60 - 200 - kToolbarHeight,
                 child: TabBarView(
                   controller: _tabController,
-                  children: [
+                  children: const [
                     Publications(),
                     Parametre(),
                   ],

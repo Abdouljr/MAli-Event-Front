@@ -164,7 +164,97 @@ class DetailsArtiste extends StatelessWidget {
           //     ),
           //   ],
           // )
+                // bottomNavigationBar: NavigationBar(),
+
           ),
+    );
+  }
+
+   Widget NavigationBar() {
+    return Container(
+      color: const Color(0xFF0F2D42),
+      child: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+                color: Color(0x1B2229).withOpacity(0.2),
+                spreadRadius: 1,
+                blurRadius: 1),
+          ],
+        ),
+        child: ClipRRect(
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          ),
+          child: BottomNavigationBar(
+            backgroundColor: const Color(0xFF1B2229),
+            selectedItemColor: const Color(0xFF0094ED),
+            selectedFontSize: 12,
+            unselectedFontSize: 12,
+            unselectedItemColor: Colors.grey.withOpacity(0.7),
+            type: BottomNavigationBarType.fixed,
+            items: [
+              const BottomNavigationBarItem(
+                label: 'home',
+                icon: Icon(
+                  Icons.home_rounded,
+                  size: 30,
+                ),
+              ),
+              BottomNavigationBarItem(
+                label: "Application",
+                icon: Container(
+                  margin: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(5),
+                  decoration: BoxDecoration(
+                    // color: Colors.grey.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const Icon(
+                    Icons.more_horiz_outlined,
+                    size: 30,
+                    color: const Color(0xFF68798B),
+                  ),
+                ),
+              ),
+              BottomNavigationBarItem(
+                label: "Film",
+                icon: Container(
+                  margin: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(5),
+                  decoration: BoxDecoration(
+                    // color: Colors.grey.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const Icon(
+                    Icons.play_arrow_rounded,
+                    size: 30,
+                    color: const Color(0xFF68798B),
+                  ),
+                ),
+                
+              ),
+              BottomNavigationBarItem(
+                label: "Book",
+                icon: Container(
+                  margin: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(5),
+                  decoration: BoxDecoration(
+                    // color: Colors.grey.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const Icon(
+                    Icons.auto_stories_rounded,
+                    size: 30,
+                    color: const Color(0xFF68798B),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
