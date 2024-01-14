@@ -47,8 +47,7 @@ class FavPublication extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.all(15),
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Color(0xFF0164E5)),
+                      borderRadius: BorderRadius.circular(10), color: gris),
                   child: Text("Artiste",
                       style: TextStyle(fontSize: 20, color: Colors.white)),
                 ),
