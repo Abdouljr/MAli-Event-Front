@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+
 
 class Apropos extends StatelessWidget {
   const Apropos({super.key});
@@ -8,10 +7,10 @@ class Apropos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF0F2D42),
+      backgroundColor: const Color(0xFF0F2D42),
       body: Column(
         children: <Widget>[
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           Container(
@@ -22,15 +21,15 @@ class Apropos extends StatelessWidget {
               ),
               borderRadius: BorderRadius.circular(12),
             ),
-            child: Column(
+            child:  Column(
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.only(
+                  padding:const EdgeInsets.only(
                       left: 10.0,
                       top: 5.0,
                       bottom: 5.0), // Ajoutez la marge ici
                   child: Row(
-                    children: <Widget>[
+                    children:const <Widget>[
                       Icon(
                         Icons.play_circle_outline_sharp,
                         color: Colors.white,
@@ -45,13 +44,13 @@ class Apropos extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
+               const SizedBox(
                   height: 5,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 10.0, top: 5.0, bottom: 5.0),
+                  padding:const EdgeInsets.only(left: 10.0, top: 5.0, bottom: 5.0),
                   child: Row(
-                    children: <Widget>[
+                    children:const <Widget>[
                       Icon(Icons.email_outlined,
                       color: Colors.white,
                       ),
@@ -63,13 +62,13 @@ class Apropos extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
+               const SizedBox(
                   height: 5,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 10.0, top: 5.0, bottom: 5.0),
+                  padding: const EdgeInsets.only(left: 10.0, top: 5.0, bottom: 5.0),
                   child: Row(
-                    children: <Widget>[
+                    children:const <Widget>[
                       Icon(Icons.call,
                       color: Colors.white,
                       ),
@@ -83,9 +82,9 @@ class Apropos extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 10.0, top: 5.0, bottom: 5.0),
+                  padding: const EdgeInsets.only(left: 10.0, top: 5.0, bottom: 5.0),
                   child: Row(
-                    children: <Widget>[
+                    children:const <Widget>[
                       Icon(
                         Icons.facebook,
                         color: Colors.white,

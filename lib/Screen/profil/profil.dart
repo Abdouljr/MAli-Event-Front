@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:front_mali_event/Screen/artistes/apropos.dart';
 import 'package:front_mali_event/Screen/artistes/publication.dart';

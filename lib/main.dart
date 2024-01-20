@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'Screen/Auth & inscription/inscription.dart';
+import 'Screen/Evenement/Home_event.dart';
+import 'Screen/Favories/favorie artiste/favorie_artiste.dart';
 import 'Screen/artistes/apropos.dart';
 import 'Screen/artistes/details.dart';
 import 'Screen/profil/profil.dart';
 
 void main() {
   runApp(const MyApp());
+  //SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 }
 
 class MyApp extends StatelessWidget {
@@ -52,11 +56,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget getBody() {
     switch (_indexSelectionne) {
       case 0:
-        return const DetailsArtiste();
+        return const AccueilEvent();
       case 1:
-        return const Profil();
+        return const Inscription();
       case 2:
-        return const Profil();
+        return const ArtisteFav();
       default:
         return const Profil();
     }
