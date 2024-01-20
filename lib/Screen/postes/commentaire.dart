@@ -94,9 +94,17 @@ class _CommentairePostState extends State<CommentairePost> {
                     width: double.infinity,
                     height: size.height * .3,
                   ),
-                  Container(
-                    height: 20,
-                    color: Colors.amber,
+                  Row(
+                    children: [
+                      Container(
+                        height: 30,
+                        width: 30,
+                        decoration: BoxDecoration(
+                          color: Colors.amber,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                    ],
                   ),
                   Container(
                       padding: const EdgeInsets.only(left: 5, bottom: 10),
