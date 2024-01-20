@@ -22,7 +22,7 @@ class _AuthentificationState extends State<Authentification> {
             const Text(
               "Connexion",
               style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 30,
                   color: Color(0xFF0094ED),
                   fontWeight: FontWeight.bold),
             ),
@@ -31,14 +31,14 @@ class _AuthentificationState extends State<Authentification> {
             ),
             const Text("Votre aventure commence ici",
                 style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.white,
-                )),
+                    fontSize: 22,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w400)),
             const Text("connectez-vous pour explorer.",
                 style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.white,
-                )),
+                    fontSize: 22,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w400)),
             const SizedBox(
               height: 40,
             ),
@@ -46,11 +46,16 @@ class _AuthentificationState extends State<Authentification> {
             const Text(
               "Numero de telephone",
               style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 20,
                   color: Colors.white,
                   fontWeight: FontWeight.w600),
             ),
+            const SizedBox(
+              height: 5,
+            ),
             TextFormField(
+              style: TextStyle(
+                  color: Colors.white), // Définir la couleur du texte saisi
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
@@ -58,34 +63,49 @@ class _AuthentificationState extends State<Authentification> {
                 ),
                 filled: true,
                 fillColor: const Color(0xFF3F5769),
-                hintText: '91 22 88 29 ',
+                hintText: '91 22 88 29',
+                hintStyle: TextStyle(
+                    color: Colors.white70), // Définir la couleur du placeholder
+                suffixIcon: const Icon(
+                  Icons.check_circle_outline,
+                  color: Colors.green,
+                  size: 30,
+                ),
               ),
             ),
             const SizedBox(
-              height: 10,
+              height: 20,
             ),
             // ======== ========== ============
             const Text(
               "Mot de passe",
               style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 20,
                   color: Colors.white,
                   fontWeight: FontWeight.w600),
             ),
+            const SizedBox(
+              height: 5,
+            ),
             TextFormField(
+              obscureText: true, // Champ de mot de passe
+              style: TextStyle(color: Colors.white), // Couleur du texte saisi
               decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide.none,
-                  ),
-                  filled: true,
-                  fillColor: const Color(0xFF3F5769),
-                  hintText: 'Mot de passe',
-                  suffixIcon: const Icon(
-                    Icons.check_circle,
-                    color: Colors.green,
-                    size: 30,
-                  )),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide.none,
+                ),
+                filled: true,
+                fillColor: const Color(0xFF3F5769),
+                hintText: 'Mot de passe',
+                hintStyle:
+                    TextStyle(color: Colors.white70), // Couleur du placeholder
+                suffixIcon: const Icon(
+                  Icons.check_circle_outline,
+                  color: Colors.green,
+                  size: 30,
+                ),
+              ),
             ),
             const SizedBox(
               height: 20,
@@ -99,7 +119,7 @@ class _AuthentificationState extends State<Authentification> {
               ),
             ),
             const SizedBox(
-              height: 10,
+              height: 15,
             ),
             SizedBox(
               width: double.infinity,
@@ -116,7 +136,35 @@ class _AuthentificationState extends State<Authentification> {
               ),
             ),
             const SizedBox(
-              height: 60,
+              height: 45,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Container(
+                    height: 1,
+                    color: Colors.white,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: Text(
+                    'ou continuer avec',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    height: 1,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
+
+            const SizedBox(
+              height: 45,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -130,6 +178,7 @@ class _AuthentificationState extends State<Authentification> {
                   child: const Icon(
                     Icons.facebook_outlined,
                     size: 40,
+                    color: Color(0xFF1877F2), // Couleur officielle de Facebook
                   ),
                 ),
                 Container(
@@ -138,9 +187,10 @@ class _AuthentificationState extends State<Authentification> {
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(8)),
-                  child: const Icon(
-                    Icons.report_gmailerrorred,
-                    size: 40,
+                  child: Image.asset(
+                    'assets/images/google.jpg', // Remplacez par le chemin de votre image Google personnalisée
+                    width: 40,
+                    height: 40,
                   ),
                 ),
                 Container(
@@ -152,6 +202,7 @@ class _AuthentificationState extends State<Authentification> {
                   child: const Icon(
                     Icons.apple_outlined,
                     size: 40,
+                    color: Color(0xFF29282D), // Couleur officielle de Facebook
                   ),
                 ),
                 Container(
@@ -160,9 +211,10 @@ class _AuthentificationState extends State<Authentification> {
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(8)),
-                  child: const Icon(
-                    Icons.apple_rounded,
-                    size: 40,
+                   child: Image.asset(
+                    'assets/images/twiter.png', // Remplacez par le chemin de votre image Google personnalisée
+                    width: 40,
+                    height: 40,
                   ),
                 ),
               ],
@@ -178,10 +230,10 @@ class _AuthentificationState extends State<Authentification> {
                     alignment: Alignment.center,
                     height: 40,
                     child: const Text(
-                      'Vous navez de compte?',
+                      "Vous n'avez pas de compte?",
                       style: TextStyle(
                           fontSize: 16,
-                          color: Colors.white,
+                          color: Colors.blue,
                           fontWeight: FontWeight.w600),
                     ),
                   ),

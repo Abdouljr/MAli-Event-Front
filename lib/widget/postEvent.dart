@@ -12,13 +12,19 @@ class widgetEvent extends StatelessWidget {
         Container(
           width: double.infinity,
           height: MediaQuery.of(context).size.height * .18,
-          color: const Color(0xFF0196D5),
+          color: const Color(0xFF0F232F),
           child: Row(
             children: [
               Container(
                 width: MediaQuery.of(context).size.width * .4,
                 height: MediaQuery.of(context).size.height,
-                color: Colors.amber,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(
+                        'assets/images/sdiki.jpeg'), // Remplacez par le chemin de votre image
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 5, top: 5),
@@ -132,6 +138,9 @@ class widgetEvent extends StatelessWidget {
               )
             ],
           ),
+        ),
+        const SizedBox(
+          height: 10,
         ),
       ],
     );
