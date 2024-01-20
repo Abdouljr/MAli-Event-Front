@@ -11,7 +11,7 @@ class _DetailsEventState extends State<DetailsEvent> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    Color texte = Color(0xFF0167E4);
+    Color texte = const Color(0xFF0167E4);
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -37,7 +37,7 @@ class _DetailsEventState extends State<DetailsEvent> {
                       width: 40,
                       height: 40,
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(195, 255, 255, 255),
+                        color: const Color.fromARGB(195, 255, 255, 255),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: const Icon(Icons.arrow_back_ios),

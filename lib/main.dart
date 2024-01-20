@@ -4,6 +4,7 @@ import 'Screen/Evenement/Home_event.dart';
 import 'Screen/Favories/favorie artiste/favorie_artiste.dart';
 import 'Screen/artistes/apropos.dart';
 import 'Screen/artistes/details.dart';
+import 'Screen/postes/post.dart';
 import 'Screen/profil/profil.dart';
 
 void main() {
@@ -58,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
       case 0:
         return const AccueilEvent();
       case 1:
-        return const Inscription();
+        return const PostPage();
       case 2:
         return const ArtisteFav();
       default:

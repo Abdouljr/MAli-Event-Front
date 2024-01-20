@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Postwidget extends StatelessWidget {
   Postwidget({super.key});
@@ -52,13 +53,13 @@ class Postwidget extends StatelessWidget {
     //   "description":
     //       "🤣 je ne sais pas trop quoi 🤷‍♀️ donc voilà des joueurs avec toutes les qualités qu'il faut :s"
     // },
-    // {
-    //   "pseudo": "Neymar jr",
-    //   "profil": "assets/images/profil/neymar_profil.jpg",
-    //   "post": "assets/images/post/neymar.jpg",
-    //   "description":
-    //       "🤣 je ne sais pas trop quoi 🤷‍♀️ donc voilà des joueurs avec toutes les qualités qu'il faut :s"
-    // },
+    {
+      "pseudo": "Neymar jr",
+      "profil": "assets/images/profil/neymar_profil.jpg",
+      "post": "assets/images/post/neymar.jpg",
+      "description":
+          "🤣 je ne sais pas trop quoi 🤷‍♀️ donc voilà des joueurs avec toutes les qualités qu'il faut :s"
+    },
     {
       "pseudo": "Haland",
       "profil": "assets/images/profil/haland_profil.jpg",
@@ -140,7 +141,7 @@ class Postwidget extends StatelessWidget {
             height: size.height * .3,
           ),
           Container(
-            height: 60,
+            padding: const EdgeInsets.only(left: 5, bottom: 10),
             decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
@@ -148,6 +149,55 @@ class Postwidget extends StatelessWidget {
                 bottomRight: Radius.circular(15.0),
               ),
             ),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    SizedBox(
+                        width: 40,
+                        child: IconButton(
+                            icon: const Icon(
+                              Icons.thumb_up,
+                              color: Colors.blue,
+                              size: 24,
+                            ),
+                            onPressed: () {
+                              debugPrint("Bouton like");
+                            })),
+                    SizedBox(
+                        width: 40,
+                        child: IconButton(
+                            icon: const FaIcon(FontAwesomeIcons.comment,
+                                size: 22),
+                            onPressed: () {
+                              debugPrint("Bouton commenter");
+                            })),
+                    SizedBox(
+                        width: 40,
+                        child: IconButton(
+                            icon: const FaIcon(
+                              FontAwesomeIcons.paperPlane,
+                              size: 22,
+                            ),
+                            onPressed: () {
+                              debugPrint("Bouton partager");
+                            })),
+                  ],
+                ),
+                Container(
+                    padding: const EdgeInsets.only(left: 5),
+                    margin: const EdgeInsets.only(bottom: 5),
+                    alignment: Alignment.centerLeft,
+                    child: const Text("150 j'aimes")),
+                Container(
+                    padding: const EdgeInsets.only(left: 5),
+                    alignment: Alignment.centerLeft,
+                    child: const Text("23 Commentaires")),
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 20,
           )
         ],
       );
