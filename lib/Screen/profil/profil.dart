@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:front_mali_event/Screen/artistes/apropos.dart';
 import 'package:front_mali_event/Screen/artistes/publication.dart';
+import 'package:front_mali_event/Screen/postes/post_widget.dart';
 import 'package:front_mali_event/Screen/profil/parametre.dart';
+
+
 
 class Profil extends StatefulWidget {
   const Profil({Key? key}) : super(key: key);
@@ -43,8 +46,8 @@ class _ProfilState extends State<Profil> with SingleTickerProviderStateMixin {
                     color:const Color(0xFF0E3751),
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(
+                  child: const Padding(
+                    padding: EdgeInsets.only(
                       left: 50,
                       top: 40,
                       right: 16,
@@ -52,8 +55,8 @@ class _ProfilState extends State<Profil> with SingleTickerProviderStateMixin {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                      const  SizedBox(height: 45),
-                      const  Text(
+                      SizedBox(height: 45),
+                      Text(
                           'Sidiki Diabaté',
                           style: TextStyle(
                             fontSize: 25,
@@ -61,9 +64,9 @@ class _ProfilState extends State<Profil> with SingleTickerProviderStateMixin {
                             color: Colors.white,
                           ),
                         ),
-                       const SizedBox(height: 16),
+                       SizedBox(height: 16),
                         Row(
-                          children: const <Widget>[
+                          children: <Widget>[
                             Text(
                               'Dmusic',
                               style: TextStyle(
@@ -80,9 +83,9 @@ class _ProfilState extends State<Profil> with SingleTickerProviderStateMixin {
                             )
                           ],
                         ),
-                       const SizedBox(height: 10),
+                       SizedBox(height: 10),
                         Row(
-                          children: const <Widget>[
+                          children: <Widget>[
                             Text(
                               ' 91 22 88 20',
                               style: TextStyle(
@@ -153,6 +156,10 @@ class _ProfilState extends State<Profil> with SingleTickerProviderStateMixin {
                 Tab(text: 'Publications'),
                 Tab(text: 'Paramètre du compte'),
               ],
+              labelColor: Colors.blue,
+              unselectedLabelColor: Color.fromARGB(255, 255, 255, 255),
+              indicatorColor: Colors.blue,
+              indicatorWeight: 2,
             ),
             DefaultTabController(
               length: 2,
@@ -160,9 +167,9 @@ class _ProfilState extends State<Profil> with SingleTickerProviderStateMixin {
                 height: MediaQuery.of(context).size.height - 60 - 200 - kToolbarHeight,
                 child: TabBarView(
                   controller: _tabController,
-                  children: const [
-                    Publications(),
-                    Parametre(),
+                  children:  [
+                    Postwidget(),
+                    const Parametre(),
                   ],
                 ),
               ),

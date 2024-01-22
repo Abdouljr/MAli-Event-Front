@@ -126,6 +126,12 @@ class _AuthentificationState extends State<Authentification> {
               height: 50,
               child: ElevatedButton(
                 onPressed: () {},
+                 style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white, backgroundColor: Colors.blue,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
                 child: const Text(
                   "Se Connecter",
                   style: TextStyle(
@@ -147,8 +153,8 @@ class _AuthentificationState extends State<Authentification> {
                     color: Colors.white,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8),
                   child: Text(
                     'ou continuer avec',
                     style: TextStyle(color: Colors.white),
@@ -244,6 +250,10 @@ class _AuthentificationState extends State<Authentification> {
                           MaterialPageRoute(
                               builder: (_) => const Inscription()));
                     },
+                     style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white, backgroundColor: Colors.blue,
+                      
+                    ),
                     child: const Text(
                       "S'inscrire",
                       style: TextStyle(

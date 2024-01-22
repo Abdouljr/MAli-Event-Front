@@ -11,7 +11,7 @@ class widgetEvent extends StatelessWidget {
       children: [
         Container(
           width: double.infinity,
-          height: MediaQuery.of(context).size.height * .18,
+          height: MediaQuery.of(context).size.height * .20,
           color: const Color(0xFF0F232F),
           child: Row(
             children: [
@@ -26,27 +26,27 @@ class widgetEvent extends StatelessWidget {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 5, top: 5),
+              const Padding(
+                padding: EdgeInsets.only(left: 5, top: 5),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       'Souleymane Kante',
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 16),
                     ),
-                    const Text(
+                    Text(
                       'Concert',
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 16),
                     ),
-                    const Text.rich(
+                    Text.rich(
                       TextSpan(
                           text: 'Entree: ',
                           style: TextStyle(
@@ -63,7 +63,7 @@ class widgetEvent extends StatelessWidget {
                             )
                           ]),
                     ),
-                    const Text.rich(
+                    Text.rich(
                       TextSpan(
                           text: 'Info: ',
                           style: TextStyle(
@@ -81,7 +81,7 @@ class widgetEvent extends StatelessWidget {
                           ]),
                     ),
                     Row(
-                      children: const [
+                      children: [
                         Icon(
                           Icons.calendar_month_sharp,
                           color: Colors.white,
@@ -116,7 +116,7 @@ class widgetEvent extends StatelessWidget {
                       ],
                     ),
                     Row(
-                      children: const [
+                      children: [
                         Icon(
                           Icons.place,
                           color: Colors.white,

@@ -15,13 +15,13 @@ class Publications extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                     Row(
+                     const Row(
                       children: <Widget>[
                         CircleAvatar(
                           radius: 30,
                           backgroundColor: Colors.white,
                           child: Stack(
-                            children: const <Widget>[
+                            children: <Widget>[
                               CircleAvatar(
                                 radius: 28,
                                 backgroundImage:
@@ -31,10 +31,10 @@ class Publications extends StatelessWidget {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 8.0),
+                          padding: EdgeInsets.only(left: 8.0),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const <Widget>[
+                            children: <Widget>[
                               Text(
                                 'Sidiki Diabaté',
                                 style: TextStyle(
@@ -88,13 +88,13 @@ class Publications extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                     Row(
+                     const Row(
                       children: <Widget>[
                         CircleAvatar(
                           radius: 30,
                           backgroundColor: Colors.white,
                           child: Stack(
-                            children: const <Widget>[
+                            children: <Widget>[
                               CircleAvatar(
                                 radius: 28,
                                 backgroundImage:
@@ -104,10 +104,10 @@ class Publications extends StatelessWidget {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 8.0),
+                          padding: EdgeInsets.only(left: 8.0),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const <Widget>[
+                            children: <Widget>[
                               Text(
                                 'Sidiki Diabaté',
                                 style: TextStyle(

@@ -61,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
       case 1:
         return const PostPage();
       case 2:
-        return const ArtisteFav();
+        return const DetailsArtiste();
       default:
         return const Profil();
     }
@@ -72,7 +72,9 @@ class BarreDeNavigation extends StatefulWidget {
   final Function(int) onItemTapped;
   final int currentIndex;
 
-  const BarreDeNavigation({Key? key, required this.onItemTapped, required this.currentIndex}) : super(key: key);
+  const BarreDeNavigation(
+      {Key? key, required this.onItemTapped, required this.currentIndex})
+      : super(key: key);
 
   @override
   // ignore: library_private_types_in_public_api
@@ -109,7 +111,8 @@ class _BarreDeNavigationState extends State<BarreDeNavigation> {
             currentIndex: widget.currentIndex,
             onTap: widget.onItemTapped,
             items: [
-              _construireElementBarreDeNavigation("Accueil", Icons.home_rounded, 0),
+              _construireElementBarreDeNavigation(
+                  "Accueil", Icons.home_rounded, 0),
               _construireElementBarreDeNavigation("Posts", Icons.article, 1),
               _construireElementBarreDeNavigation("Favoris", Icons.favorite, 2),
               _construireElementBarreDeNavigation("Profil", Icons.person, 3),
@@ -120,7 +123,8 @@ class _BarreDeNavigationState extends State<BarreDeNavigation> {
     );
   }
 
-  BottomNavigationBarItem _construireElementBarreDeNavigation(String libelle, IconData icone, int index) {
+  BottomNavigationBarItem _construireElementBarreDeNavigation(
+      String libelle, IconData icone, int index) {
     return BottomNavigationBarItem(
       label: '',
       icon: Column(
@@ -129,13 +133,17 @@ class _BarreDeNavigationState extends State<BarreDeNavigation> {
           Icon(
             icone,
             size: 30,
-            color: widget.currentIndex == index ? const Color(0xFF0094ED) : const Color(0xFF68798B),
+            color: widget.currentIndex == index
+                ? const Color(0xFF0094ED)
+                : const Color(0xFF68798B),
           ),
           const SizedBox(height: 4),
           Text(
             libelle,
             style: TextStyle(
-              color: widget.currentIndex == index ? const Color(0xFF0094ED) : const Color(0xFF68798B),
+              color: widget.currentIndex == index
+                  ? const Color(0xFF0094ED)
+                  : const Color(0xFF68798B),
             ),
           ),
           const SizedBox(height: 4),

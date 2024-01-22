@@ -124,6 +124,10 @@ class _InscriptionState extends State<Inscription> {
               height: 50,
               child: ElevatedButton(
                 onPressed: () {},
+                 style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white, backgroundColor: Colors.blue,
+                      
+                    ),
                 child: const Text(
                   "S'isncrire",
                   style: TextStyle(
@@ -158,6 +162,10 @@ class _InscriptionState extends State<Inscription> {
                           MaterialPageRoute(
                               builder: (_) => const Authentification()));
                     },
+                     style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white, backgroundColor: Colors.blue,
+                     
+                    ),
                     child: const Text(
                       "Se connecter",
                       style: TextStyle(

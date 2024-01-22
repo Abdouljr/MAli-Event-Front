@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:front_mali_event/Screen/artistes/publication.dart';
+import 'package:front_mali_event/Screen/postes/post_widget.dart';
 
 import 'apropos.dart';
 
@@ -42,8 +43,8 @@ class DetailsArtiste extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   const SizedBox(height: 16),
-                  Row(
-                    children: const <Widget>[
+                  const Row(
+                    children: <Widget>[
                       Text(
                         'Sidiki Diabate',
                         style: TextStyle(
@@ -68,8 +69,8 @@ class DetailsArtiste extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 8),
-                  Row(
-                    children: const <Widget>[
+                  const Row(
+                    children: <Widget>[
                       Text(
                         'Artiste chanteur ',
                         style: TextStyle(fontSize: 16, color: Colors.white),
@@ -85,8 +86,8 @@ class DetailsArtiste extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 12),
-                  Row(
-                    children: const <Widget>[
+                  const Row(
+                    children: <Widget>[
                       Text(
                         '3,14 M ',
                         style: TextStyle(
@@ -108,7 +109,9 @@ class DetailsArtiste extends StatelessWidget {
                         width: 150,
                         child: ElevatedButton(
                           onPressed: () {},
+                          
                           style: ElevatedButton.styleFrom(
+                            foregroundColor: Colors.white, backgroundColor: Colors.blue,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
@@ -126,11 +129,15 @@ class DetailsArtiste extends StatelessWidget {
                       Tab(text: 'Publications'),
                       Tab(text: 'À propos'),
                     ],
+                    labelColor: Colors.blue,
+                    unselectedLabelColor: Color.fromARGB(255, 255, 255, 255),
+                    indicatorColor: Colors.blue,
+                    indicatorWeight: 2,
                   ),
-                  const Expanded(
+                  Expanded(
                     child: TabBarView(
                       children: [
-                        Publications(),
+                        Postwidget(),
                         Apropos(),
                       ],
                     ),

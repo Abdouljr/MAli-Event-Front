@@ -192,7 +192,7 @@ class _ParametreState extends State<Parametre> {
                   },
                 ),
                 const SizedBox(height: 16.0),
-                SizedBox(
+                Container(
                   height: 50,
                   width: double.infinity,
                   child: ElevatedButton(
@@ -208,9 +208,11 @@ class _ParametreState extends State<Parametre> {
                             "Nom: $nom, Prénom: $prenom, Nom d'utilisateur:username");
                       }
                     },
+                  
                     // ignore: sort_child_properties_last
                     child: const Text('Modifier'),
                     style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white, backgroundColor: Colors.blue,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
@@ -364,12 +366,22 @@ class _ParametreState extends State<Parametre> {
                     // Ajoutez une logique pour traiter le changement de mot de passe
                     Navigator.pop(context);
                   },
+                   style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white, backgroundColor: Colors.blue,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
                   child: const Text('Valider'),
                 ),
                 TextButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
+                   style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.blue,
+                    
+                    ),
                   child: const Text('Annuler'),
                 ),
               ],
