@@ -64,11 +64,11 @@ class ArtisteFav extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             FavArtisteItem(bleu: bleu, gris: gris),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             FavArtisteItem(bleu: bleu, gris: gris)
