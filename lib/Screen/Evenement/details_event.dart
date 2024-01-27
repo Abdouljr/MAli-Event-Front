@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:front_mali_event/Screen/postes/stories_widget.dart';
 
 class DetailsEvent extends StatefulWidget {
   const DetailsEvent({super.key});
@@ -27,7 +28,7 @@ class _DetailsEventState extends State<DetailsEvent> {
                     image: AssetImage("assets/images/sdiki.jpeg"),
                     fit: BoxFit.cover),
               ),
-              height: size.height * .4,
+              height: size.height * .28,
               padding: const EdgeInsets.only(left: 15, right: 15, top: 40),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -300,16 +301,7 @@ class _DetailsEventState extends State<DetailsEvent> {
                       height: size.height * .01,
                     ),
 
-                    Row(children: [
-                      Container(
-                        width: size.width * .15,
-                        height: 40,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                      )
-                    ])
+                    Storieswidget()
                   ],
                 ),
               ),

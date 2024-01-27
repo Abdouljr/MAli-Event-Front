@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:front_mali_event/Screen/Evenement/Stories%20widget.dart';
 import 'package:front_mali_event/widget/entete_titre_icon.dart';
 
-import '../../widget/postEvent.dart';
+import 'postEvent.dart';
 
 class AccueilEvent extends StatefulWidget {
   const AccueilEvent({super.key});
@@ -31,10 +32,7 @@ class _AccueilEventState extends State<AccueilEvent> {
             const SizedBox(
               height: 10,
             ),
-            Container(
-              height: 80,
-              color: Colors.white,
-            ),
+            StoriesPub(),
             const SizedBox(
               height: 10,
             ),
@@ -42,6 +40,15 @@ class _AccueilEventState extends State<AccueilEvent> {
             const SizedBox(
               height: 20,
             ),
+            widgetEvent(),
+            const SizedBox(
+              height: 20,
+            ),
+            widgetEvent(),
+            const SizedBox(
+              height: 20,
+            ),
+            widgetEvent(),
           ],
         ),
       ),

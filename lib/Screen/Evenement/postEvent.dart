@@ -11,14 +11,19 @@ class widgetEvent extends StatelessWidget {
       children: [
         Container(
           width: double.infinity,
-          height: MediaQuery.of(context).size.height * .18,
-          color: const Color(0xFF0196D5),
+          height: MediaQuery.of(context).size.height * .20,
+          color: Color(0xFF0196D5).withOpacity(0.1),
           child: Row(
             children: [
               Container(
-                width: MediaQuery.of(context).size.width * .4,
+                width: MediaQuery.of(context).size.width * .38,
                 height: MediaQuery.of(context).size.height,
-                color: Colors.amber,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("assets/images/sdiki.jpeg"),
+                      fit: BoxFit.cover),
+                  borderRadius: BorderRadius.circular(10),
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 5, top: 5),

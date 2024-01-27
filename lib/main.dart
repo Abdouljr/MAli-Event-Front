@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'Mali event',
       debugShowCheckedModeBanner: false,
-      home: ArtisteFav(),
+      home: DetailsEvent(),
     );
   }
 }
