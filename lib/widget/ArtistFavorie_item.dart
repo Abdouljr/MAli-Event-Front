@@ -26,12 +26,16 @@ class FavArtisteItem extends StatelessWidget {
                   fit: BoxFit.cover),
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(15), topRight: Radius.circular(15))),
-          child: IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.favorite,
-              size: 30,
-              color: Colors.red,
+          child: CircleAvatar(
+            radius: 20,
+            backgroundColor: Colors.white,
+            child: IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.favorite,
+                size: 24,
+                color: Colors.red,
+              ),
             ),
           ),
         ),
