@@ -3,9 +3,11 @@ import 'package:front_mali_event/Screen/Auth%20&%20inscription/authentification.
 import 'package:front_mali_event/Screen/Evenement/details_event.dart';
 
 import 'Screen/Evenement/Home_event.dart';
+import 'Screen/Favories/favorie artiste/favorie_artiste.dart';
 
 void main() {
   runApp(const MyApp());
+  //SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 }
 
 class MyApp extends StatelessWidget {
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'Mali event',
       debugShowCheckedModeBanner: false,
-      home: Authentification(),
+      home: ArtisteFav(),
     );
   }
 }

@@ -22,7 +22,11 @@ class _DetailsEventState extends State<DetailsEvent> {
         child: Column(
           children: [
             Container(
-              color: Colors.deepPurple,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("assets/images/sdiki.jpeg"),
+                    fit: BoxFit.cover),
+              ),
               height: size.height * .4,
               padding: const EdgeInsets.only(left: 15, right: 15, top: 40),
               child: Row(
@@ -221,17 +225,19 @@ class _DetailsEventState extends State<DetailsEvent> {
                     SizedBox(
                       height: size.height * .01,
                     ),
-                    Row(children: [
-                      Text("Parrain: ", style: TextStyle(color: texte)),
-                      const Text("Barouni Gambi ",
-                          style: TextStyle(color: Colors.white)),
-                      SizedBox(
-                        width: size.width * .15,
-                      ),
-                      Text("Marraine: ", style: TextStyle(color: texte)),
-                      const Text("Moussou Sora ",
-                          style: TextStyle(color: Colors.white)),
-                    ]),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("Parrain: ", style: TextStyle(color: texte)),
+                          const Text("Barouni Gambi ",
+                              style: TextStyle(color: Colors.white)),
+                          SizedBox(
+                            width: size.height * .018,
+                          ),
+                          Text("Marraine: ", style: TextStyle(color: texte)),
+                          const Text("Moussou Sora ",
+                              style: TextStyle(color: Colors.white)),
+                        ]),
                     SizedBox(
                       height: size.height * .02,
                     ),
