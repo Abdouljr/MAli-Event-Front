@@ -84,13 +84,13 @@ class _DetailsEventState extends State<DetailsEvent> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
+                        SizedBox(
                           width: size.width * .65,
-                          child: Column(
+                          child: const Column(
                             //mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text(
+                              Text(
                                 'Kanté',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
@@ -98,11 +98,11 @@ class _DetailsEventState extends State<DetailsEvent> {
                                     fontSize: 22,
                                     fontWeight: FontWeight.bold),
                               ),
-                              const SizedBox(
+                              SizedBox(
                                 height: 10,
                               ),
                               Row(
-                                children: const [
+                                children: [
                                   Icon(
                                     Icons.place,
                                     color: Colors.white,
@@ -123,11 +123,11 @@ class _DetailsEventState extends State<DetailsEvent> {
                             ],
                           ),
                         ),
-                        Expanded(
+                        const Expanded(
                             child: Column(
                           children: [
                             Row(
-                              children: const [
+                              children: [
                                 Icon(
                                   Icons.calendar_month_sharp,
                                   color: Colors.white,
@@ -145,7 +145,7 @@ class _DetailsEventState extends State<DetailsEvent> {
                               ],
                             ),
                             Row(
-                              children: const [
+                              children: [
                                 Icon(
                                   Icons.timer_sharp,
                                   color: Colors.white,

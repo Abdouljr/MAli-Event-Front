@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:front_mali_event/Screen/Auth%20&%20inscription/inscription.dart';
+import 'package:front_mali_event/Screen/artistes/details.dart';
 import 'package:front_mali_event/Screen/postes/commentaire.dart';
 
 class Postwidget extends StatelessWidget {
@@ -80,7 +82,7 @@ class Postwidget extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-             const Row(
+             Row(
               children: <Widget>[
                 CircleAvatar(
                   radius: 30,
@@ -96,27 +98,39 @@ class Postwidget extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        'Sidiki Diabaté',
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white),
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        '27 Novembre 2023',
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w300,
-                            color: Colors.white),
-                      ),
-                    ],
+                  child: GestureDetector(
+                    onTap: () {
+                      // Add the action you want when the name is tapped
+                      debugPrint("Tapped on Sidiki Diabaté");
+                      // You can replace the below line with your desired navigation logic
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => DetailsArtiste()),
+                      );
+                    },
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          'Sidiki Diabaté',
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.blue), // Change color as needed
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          '27 Novembre 2023',
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w300,
+                              color: Colors.white),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -169,18 +183,18 @@ class Postwidget extends StatelessWidget {
                       SizedBox(
                           width: 40,
                           child: IconButton(
-                              icon: const FaIcon(FontAwesomeIcons.comment,
-                                  size: 22),
-                              // onPressed: () {
-                              //   debugPrint("Bouton commenter");
-                              // }
-                                 onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (_) => const CommentairePost()));
-                      },
-                              )),
+                            icon:
+                                const FaIcon(FontAwesomeIcons.comment, size: 22),
+                            // onPressed: () {
+                            //   debugPrint("Bouton commenter");
+                            // }
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => const CommentairePost()));
+                            },
+                          )),
                       SizedBox(
                           width: 40,
                           child: IconButton(
@@ -188,9 +202,17 @@ class Postwidget extends StatelessWidget {
                                 FontAwesomeIcons.paperPlane,
                                 size: 22,
                               ),
-                              onPressed: () {
-                                debugPrint("Bouton partager");
-                              })),
+                              // onPressed: () {
+                              //   debugPrint("Bouton partager");
+                              // }
+                                                          onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => const Inscription()));
+                            },
+
+                              )),
                     ],
                   ),
                   Container(
