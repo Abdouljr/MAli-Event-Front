@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:front_mali_event/Screen/Auth%20&%20inscription/authentification.dart';
 import 'package:front_mali_event/Screen/Evenement/details_event.dart';
 
 import 'Screen/Evenement/Home_event.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'Mali event',
       debugShowCheckedModeBanner: false,
-      home: DetailsEvent(),
+      home: Authentification(),
     );
   }
 }
