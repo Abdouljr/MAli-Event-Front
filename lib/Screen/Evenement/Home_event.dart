@@ -28,7 +28,7 @@ class _AccueilEventState extends State<AccueilEvent> {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            entete(),
+            const entete(),
             const SizedBox(
               height: 10,
             ),
@@ -36,7 +36,7 @@ class _AccueilEventState extends State<AccueilEvent> {
             const SizedBox(
               height: 10,
             ),
-            widgetEvent(),
+            const widgetEvent(),
             const SizedBox(
               height: 20,
             ),

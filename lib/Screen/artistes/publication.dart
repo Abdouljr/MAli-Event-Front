@@ -15,7 +15,7 @@ class Publications extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    const Row(
+                     const Row(
                       children: <Widget>[
                         CircleAvatar(
                           radius: 30,
@@ -88,7 +88,7 @@ class Publications extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    const Row(
+                     const Row(
                       children: <Widget>[
                         CircleAvatar(
                           radius: 30,

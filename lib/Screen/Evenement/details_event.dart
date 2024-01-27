@@ -12,7 +12,7 @@ class _DetailsEventState extends State<DetailsEvent> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    Color texte = Color(0xFF0167E4);
+    Color texte = const Color(0xFF0167E4);
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -38,7 +38,7 @@ class _DetailsEventState extends State<DetailsEvent> {
                       width: 40,
                       height: 40,
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(195, 255, 255, 255),
+                        color: const Color.fromARGB(195, 255, 255, 255),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: const Icon(Icons.arrow_back_ios),
@@ -85,13 +85,13 @@ class _DetailsEventState extends State<DetailsEvent> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
+                        SizedBox(
                           width: size.width * .65,
-                          child: Column(
+                          child: const Column(
                             //mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text(
+                              Text(
                                 'Kanté',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
@@ -99,11 +99,11 @@ class _DetailsEventState extends State<DetailsEvent> {
                                     fontSize: 22,
                                     fontWeight: FontWeight.bold),
                               ),
-                              const SizedBox(
+                              SizedBox(
                                 height: 10,
                               ),
                               Row(
-                                children: const [
+                                children: [
                                   Icon(
                                     Icons.place,
                                     color: Colors.white,
@@ -124,11 +124,11 @@ class _DetailsEventState extends State<DetailsEvent> {
                             ],
                           ),
                         ),
-                        Expanded(
+                        const Expanded(
                             child: Column(
                           children: [
                             Row(
-                              children: const [
+                              children: [
                                 Icon(
                                   Icons.calendar_month_sharp,
                                   color: Colors.white,
@@ -146,7 +146,7 @@ class _DetailsEventState extends State<DetailsEvent> {
                               ],
                             ),
                             Row(
-                              children: const [
+                              children: [
                                 Icon(
                                   Icons.timer_sharp,
                                   color: Colors.white,

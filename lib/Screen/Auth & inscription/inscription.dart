@@ -1,6 +1,3 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:front_mali_event/Screen/Auth%20&%20inscription/authentification.dart';
 
@@ -15,7 +12,7 @@ class _InscriptionState extends State<Inscription> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF0F2D42),
+      backgroundColor: const Color(0xFF0F2D42),
       body: Padding(
         padding: const EdgeInsets.only(top: 80, left: 10, right: 10),
         child: Column(
@@ -122,11 +119,15 @@ class _InscriptionState extends State<Inscription> {
             const SizedBox(
               height: 40,
             ),
-            Container(
+            SizedBox(
               width: double.infinity,
               height: 50,
               child: ElevatedButton(
                 onPressed: () {},
+                 style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white, backgroundColor: Colors.blue,
+                      
+                    ),
                 child: const Text(
                   "S'isncrire",
                   style: TextStyle(
@@ -154,21 +155,23 @@ class _InscriptionState extends State<Inscription> {
                           fontWeight: FontWeight.w600),
                     ),
                   ),
-                  Container(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (_) => const Authentification()));
-                      },
-                      child: const Text(
-                        "Se connecter",
-                        style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w600),
-                      ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => const Authentification()));
+                    },
+                     style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white, backgroundColor: Colors.blue,
+                     
+                    ),
+                    child: const Text(
+                      "Se connecter",
+                      style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600),
                     ),
                   ),
                 ],
