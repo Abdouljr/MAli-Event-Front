@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class favorie_item extends StatelessWidget {
-  const favorie_item({
+class FavArtisteItem extends StatelessWidget {
+  const FavArtisteItem({
     super.key,
     required this.bleu,
     required this.gris,
@@ -61,7 +61,7 @@ class favorie_item extends StatelessWidget {
           ],
         ),
         SizedBox(
-          height: 3,
+          height: 1,
         ),
         Row(
           children: [
@@ -72,23 +72,17 @@ class favorie_item extends StatelessWidget {
                   width: 2,
                 ),
                 Text(
-                  "Place de cinquantenaire",
+                  "Kalaban",
                   style: TextStyle(color: gris, fontSize: 12),
                 )
               ]),
             ),
             Expanded(
               child: Container(
-                child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-                  Icon(Icons.calendar_month_sharp, color: gris, size: 18),
-                  SizedBox(
-                    width: 2,
-                  ),
-                  Text(
-                    "31-12-2024",
-                    style: TextStyle(color: gris, fontSize: 12),
-                  )
-                ]),
+                alignment: Alignment.topRight,
+                child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.info_outline, color: bleu, size: 22)),
               ),
             )
           ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:front_mali_event/widget/ArtistFavorie_item.dart';
 import 'package:front_mali_event/widget/fav%20titre.dart';
 import 'package:front_mali_event/widget/favorie_item.dart';
 
@@ -28,7 +29,8 @@ class ArtisteFav extends StatelessWidget {
                 alignment: Alignment.center,
                 height: 45,
                 decoration: BoxDecoration(
-                    border: Border.all(color: gris, style: BorderStyle.solid),
+                    border: Border.all(
+                        color: Color(0xFFA0A9B0), style: BorderStyle.solid),
                     borderRadius: BorderRadius.circular(10)),
                 child: TextFormField(
                   decoration: InputDecoration(
@@ -44,7 +46,7 @@ class ArtisteFav extends StatelessWidget {
                   padding: EdgeInsets.all(15),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: Color(0xFF0164E5),
+                    color: Color(0xFF0164E5).withOpacity(0.4),
                   ),
                   child: Text("Publication",
                       style: TextStyle(fontSize: 20, color: Colors.white)),
@@ -56,7 +58,7 @@ class ArtisteFav extends StatelessWidget {
                   padding: EdgeInsets.all(15),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Color(0xFF0164E5).withOpacity(0.4)),
+                      color: Color(0xFF0164E5)),
                   child: Text("Artiste",
                       style: TextStyle(fontSize: 20, color: Colors.white)),
                 ),
@@ -65,11 +67,11 @@ class ArtisteFav extends StatelessWidget {
             SizedBox(
               height: 15,
             ),
-            favorie_item(bleu: bleu, gris: gris),
+            FavArtisteItem(bleu: bleu, gris: gris),
             SizedBox(
               height: 40,
             ),
-            favorie_item(bleu: bleu, gris: gris)
+            FavArtisteItem(bleu: bleu, gris: gris)
           ],
         ),
       ),
