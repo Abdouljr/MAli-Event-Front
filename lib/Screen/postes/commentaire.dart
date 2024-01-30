@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// ignore: depend_on_referenced_packages
 import 'package:front_mali_event/config.dart';
 
 class CommentairePost extends StatefulWidget {
@@ -121,8 +122,8 @@ class _CommentairePostState extends State<CommentairePost> {
                                     height: 35,
                                     width: size.width * .25,
                                     decoration: BoxDecoration(
-                                      color: Config.couleur.grise
-                                          .withOpacity(.2),
+                                      color:
+                                          Config.couleur.grise.withOpacity(.2),
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                     child: Row(
@@ -152,7 +153,7 @@ class _CommentairePostState extends State<CommentairePost> {
                                 .toList(),
                           ),
                         ),
-                             Container(
+                        Container(
                           padding: const EdgeInsets.only(left: 5, bottom: 10),
                           decoration: const BoxDecoration(
                             color: Colors.white,
@@ -162,8 +163,7 @@ class _CommentairePostState extends State<CommentairePost> {
                             child: Column(children: [
                               Commentaire(
                                 size: size,
-                                commentaire:
-                                    'je ne sais pas ce que je veux',
+                                commentaire: 'je ne sais pas ce que je veux',
                               ),
                               Commentaire(
                                 size: size,
@@ -196,66 +196,68 @@ class _CommentairePostState extends State<CommentairePost> {
             ),
           ),
           // ==================================== Champ Commentaire ============
-     Container(
-  height: size.height * .08,
-  padding: const EdgeInsets.only(left: 5),
-  decoration: const BoxDecoration(
-    color: Colors.white,
-    boxShadow: [
-      BoxShadow(
-        color: Colors.black,
-        blurRadius: 1,
-        spreadRadius: .1,
-      ),
-    ],
-  ),
-  child: Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 8.0),
-    child: Row(
-      children: [
-        Expanded(
-          child: TextField(
-            controller: cController,
-            keyboardType: TextInputType.multiline,
-            maxLines: null, // Permet une croissance dynamique du champ de saisie
-            minLines: 1, // Nombre minimum de lignes visibles
-            onChanged: (value) {
-              setState(() {
-                isCommentScrollable = cController.text.split('\n').length > 3;
-              });
-            },
-            decoration: InputDecoration(
-              hintText: 'Votre commentaire...',
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(15),
+          Container(
+            height: size.height * .08,
+            padding: const EdgeInsets.only(left: 5),
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black,
+                  blurRadius: 1,
+                  spreadRadius: .1,
+                ),
+              ],
+            ),
+            child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 5.0, vertical: 8.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: TextField(
+                      controller: cController,
+                      keyboardType: TextInputType.multiline,
+                      maxLines:
+                          null, // Permet une croissance dynamique du champ de saisie
+                      minLines: 1, // Nombre minimum de lignes visibles
+                      onChanged: (value) {
+                        setState(() {
+                          isCommentScrollable =
+                              cController.text.split('\n').length > 3;
+                        });
+                      },
+                      decoration: InputDecoration(
+                        hintText: 'Votre commentaire...',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        contentPadding:
+                            const EdgeInsets.symmetric(horizontal: 16.0),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  SizedBox(
+                    width: 40,
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.send,
+                        color: Config.couleur.bleu,
+                        size: 28,
+                      ),
+                      onPressed: () {
+                        // Ajoutez ici le code pour envoyer le commentaire
+                        print('Commentaire envoyé: ${cController.text}');
+                      },
+                    ),
+                  ),
+                ],
               ),
-              contentPadding:
-                  const EdgeInsets.symmetric(horizontal: 16.0),
             ),
           ),
-        ),
-        const SizedBox(
-          width: 5,
-        ),
-        SizedBox(
-          width: 40,
-          child: IconButton(
-            icon: Icon(
-              Icons.send,
-              color: Config.couleur.bleu,
-              size: 28,
-            ),
-            onPressed: () {
-              // Ajoutez ici le code pour envoyer le commentaire
-              print('Commentaire envoyé: ${cController.text}');
-            },
-          ),
-        ),
-      ],
-    ),
-  ),
-),
-
         ],
       ),
     );

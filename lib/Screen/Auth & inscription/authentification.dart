@@ -126,12 +126,13 @@ class _AuthentificationState extends State<Authentification> {
               height: 50,
               child: ElevatedButton(
                 onPressed: () {},
-                 style: ElevatedButton.styleFrom(
-                      foregroundColor: Colors.white, backgroundColor: Colors.blue,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                    ),
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.blue,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                ),
                 child: const Text(
                   "Se Connecter",
                   style: TextStyle(
@@ -193,10 +194,13 @@ class _AuthentificationState extends State<Authentification> {
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(8)),
-                  child: Image.asset(
-                    'assets/images/google.jpg', // Remplacez par le chemin de votre image Google personnalisée
-                    width: 40,
-                    height: 40,
+                  child: Center(
+                    
+                    child: Image.asset(
+                      'assets/images/google.jpg', // Remplacez par le chemin de votre image Google personnalisée
+                      width: 40,
+                      height: 40,
+                    ),
                   ),
                 ),
                 Container(
@@ -217,10 +221,13 @@ class _AuthentificationState extends State<Authentification> {
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(8)),
-                   child: Image.asset(
-                    'assets/images/twiter.png', // Remplacez par le chemin de votre image Google personnalisée
-                    width: 40,
-                    height: 40,
+                  child: Center(
+                    // Ajoutez ce widget
+                    child: Image.asset(
+                      'assets/images/twiter.png', // Remplacez par le chemin de votre image Google personnalisée
+                      width: 40, // Réduisez la largeur ici
+                      height: 40, // Réduisez la hauteur ici
+                    ),
                   ),
                 ),
               ],
@@ -250,9 +257,9 @@ class _AuthentificationState extends State<Authentification> {
                           MaterialPageRoute(
                               builder: (_) => const Inscription()));
                     },
-                     style: ElevatedButton.styleFrom(
-                      foregroundColor: Colors.white, backgroundColor: Colors.blue,
-                      
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      backgroundColor: Colors.blue,
                     ),
                     child: const Text(
                       "S'inscrire",

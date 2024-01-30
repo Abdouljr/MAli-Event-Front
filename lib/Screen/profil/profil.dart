@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:front_mali_event/Screen/artistes/apropos.dart';
-import 'package:front_mali_event/Screen/artistes/publication.dart';
 import 'package:front_mali_event/Screen/postes/post_widget.dart';
 import 'package:front_mali_event/Screen/profil/parametre.dart';
 
@@ -157,10 +155,11 @@ class _ProfilState extends State<Profil> with SingleTickerProviderStateMixin {
                 Tab(text: 'Paramètre du compte'),
               ],
               labelColor: Colors.blue,
-              unselectedLabelColor: Color.fromARGB(255, 255, 255, 255),
+              unselectedLabelColor: const Color.fromARGB(255, 255, 255, 255),
               indicatorColor: Colors.blue,
               indicatorWeight: 2,
             ),
+            const SizedBox(height: 10,),
             DefaultTabController(
               length: 2,
               child: SizedBox(

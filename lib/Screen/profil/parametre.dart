@@ -192,7 +192,7 @@ class _ParametreState extends State<Parametre> {
                   },
                 ),
                 const SizedBox(height: 16.0),
-                Container(
+                SizedBox(
                   height: 50,
                   width: double.infinity,
                   child: ElevatedButton(
@@ -200,7 +200,6 @@ class _ParametreState extends State<Parametre> {
                       if (_formKey.currentState!.validate()) {
                         // Le formulaire est valide, vous pouvez traiter les données ici
                         String nom = _nomController.text;
-                        String username = _usernameController.text;
 
                         String prenom = _prenomController.text;
                         // ignore: avoid_print
@@ -266,7 +265,7 @@ class _ParametreState extends State<Parametre> {
                   height: 50, // Hauteur fixe de 50 pixels
                   decoration: BoxDecoration(
                     color:
-                        Color.fromARGB(255, 248, 1, 1), // Couleur de fond bleue
+                        const Color.fromARGB(255, 248, 1, 1), // Couleur de fond bleue
                     borderRadius: BorderRadius.circular(
                         12), // Bordure arrondie avec un rayon de 12 pixels
                   ),
@@ -312,7 +311,7 @@ class _ParametreState extends State<Parametre> {
         return StatefulBuilder(
           builder: (context, setState) {
             return AlertDialog(
-              backgroundColor: Color(0xFF0F2D42),
+              backgroundColor: const Color(0xFF0F2D42),
               // color: const Color(0xFF0F2D42),
               title: const Text(
                 'Modifier le mot de passe',

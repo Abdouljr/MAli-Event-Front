@@ -1,32 +1,40 @@
 import 'package:flutter/material.dart';
-import 'Screen/Auth & inscription/inscription.dart';
+import 'package:front_mali_event/Screen/Favories/favorie%20artiste/favorie_artiste.dart';
 import 'Screen/Evenement/Home_event.dart';
-import 'Screen/Favories/favorie artiste/favorie_artiste.dart';
-import 'Screen/artistes/apropos.dart';
-import 'Screen/artistes/details.dart';
 import 'Screen/postes/post.dart';
 import 'Screen/profil/profil.dart';
+import 'package:front_mali_event/Screen/app_styles.dart';
+import 'package:front_mali_event/Screen/onboarding_page.dart';
+
+
+bool? seenOnboard;
 
 void main() {
   runApp(const MyApp());
-  //SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+ 
 }
 
+
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Mali event',
       debugShowCheckedModeBanner: false,
+      title: 'Mali event',
       theme: ThemeData(
+        // textTheme: GoogleFonts.manropeTextTheme(
+        //   Theme.of(context).textTheme,
+        // ),
         primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: kScaffoldBackground,
       ),
-      home: const MyHomePage(),
+      home: seenOnboard == true ? const MyHomePage() : const OnBoardingPage(),
     );
   }
 }
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -61,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
       case 1:
         return const PostPage();
       case 2:
-        return const DetailsArtiste();
+        return const ArtisteFav();
       default:
         return const Profil();
     }
@@ -161,3 +169,5 @@ class _BarreDeNavigationState extends State<BarreDeNavigation> {
     );
   }
 }
+
+
