@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:front_mali_event/widget/ArtistFavorie_item.dart';
 import 'package:front_mali_event/widget/fav%20titre.dart';
+import 'package:front_mali_event/widget/favorie_item.dart';
 
 import '../../../widget/entete_titre_icon.dart';
 
@@ -10,6 +12,8 @@ class ArtisteFav extends StatelessWidget {
   Widget build(BuildContext context) {
     Color bleu = Color(0xFF0164E5);
     Color gris = Color(0xFFA0A9B0);
+    Size size = MediaQuery.of(context).size;
+
     return Scaffold(
         body: SingleChildScrollView(
       child: Padding(
@@ -20,13 +24,17 @@ class ArtisteFav extends StatelessWidget {
             favEntete(),
             SizedBox(height: 20),
             Container(
+                //padding: EdgeInsets.only(top: 5),
                 width: double.infinity,
-                height: 40,
+                alignment: Alignment.center,
+                height: 45,
                 decoration: BoxDecoration(
-                    border: Border.all(color: gris, style: BorderStyle.solid),
+                    border: Border.all(
+                        color: Color(0xFFA0A9B0), style: BorderStyle.solid),
                     borderRadius: BorderRadius.circular(10)),
                 child: TextFormField(
                   decoration: InputDecoration(
+                    border: InputBorder.none,
                     prefixIcon: Icon(Icons.search_rounded),
                     hintText: 'chercher artiste...',
                   ),
@@ -38,7 +46,7 @@ class ArtisteFav extends StatelessWidget {
                   padding: EdgeInsets.all(15),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: Color(0xFF0164E5),
+                    color: Color(0xFF0164E5).withOpacity(0.4),
                   ),
                   child: Text("Publication",
                       style: TextStyle(fontSize: 20, color: Colors.white)),
@@ -56,70 +64,14 @@ class ArtisteFav extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
-            Container(
-              height: 200,
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage("assets/images/sdiki.jpeg"),
-                      fit: BoxFit.cover),
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      topRight: Radius.circular(10))),
+            FavArtisteItem(bleu: bleu, gris: gris),
+            const SizedBox(
+              height: 40,
             ),
-            SizedBox(
-              height: 10,
-            ),
-            Text("Concert",
-                style: TextStyle(
-                    color: bleu, fontSize: 24, fontWeight: FontWeight.w800)),
-            SizedBox(
-              height: 2,
-            ),
-            Row(
-              children: [
-                Text("Sidiki Diabaté",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700)),
-                SizedBox(
-                  width: 5,
-                ),
-                Icon(Icons.check_box_outlined, size: 40),
-              ],
-            ),
-            SizedBox(
-              height: 3,
-            ),
-            Row(
-              children: [
-                Container(
-                  child: Row(children: [
-                    Icon(Icons.place, color: gris, size: 18),
-                    Text(
-                      "Place de cinquantenaire",
-                      style: TextStyle(color: gris, fontSize: 12),
-                    )
-                  ]),
-                ),
-                SizedBox(
-                  width: 15,
-                ),
-                Container(
-                  child: Row(children: [
-                    Icon(Icons.calendar_month_sharp, color: gris, size: 18),
-                    Text(
-                      "31-12-2024",
-                      style: TextStyle(color: gris, fontSize: 12),
-                    )
-                  ]),
-                )
-              ],
-            )
+            FavArtisteItem(bleu: bleu, gris: gris)
           ],
         ),
       ),
