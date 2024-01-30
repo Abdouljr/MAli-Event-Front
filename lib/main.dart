@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:front_mali_event/Screen/Favories/favorie%20artiste/favorie_artiste.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'Screen/Evenement/Home_event.dart';
 import 'Screen/postes/post.dart';
 import 'Screen/profil/profil.dart';
@@ -9,14 +10,17 @@ import 'package:front_mali_event/Screen/onboarding_page.dart';
 
 bool? seenOnboard;
 
-void main() {
-  runApp(const MyApp());
- 
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  bool? seenOnboard = prefs.getBool('seenOnboard');
+  runApp(MyApp(seenOnboard: seenOnboard));
 }
 
-
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final bool? seenOnboard;
+
+  const MyApp({Key? key, this.seenOnboard}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +28,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Mali event',
       theme: ThemeData(
-        // textTheme: GoogleFonts.manropeTextTheme(
-        //   Theme.of(context).textTheme,
-        // ),
         primarySwatch: Colors.blue,
         scaffoldBackgroundColor: kScaffoldBackground,
       ),
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 
 
 class MyHomePage extends StatefulWidget {

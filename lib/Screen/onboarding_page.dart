@@ -54,11 +54,11 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
     return Scaffold(
       backgroundColor: const Color(0xFF0F2D42),
-      body: SafeArea(
+      body: SingleChildScrollView(
         child: Column(
           children: [
-            Expanded(
-              flex: 9,
+            SizedBox(
+              height: screenHeight * 0.9, // 90% of screen height
               child: PageView.builder(
                 controller: _pageController,
                 onPageChanged: (value) {
@@ -72,15 +72,15 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                     Stack(
                       children: [
                         SizedBox(
-                          height: screenHeight * 0.5, // 60% of screen height
-                          width: screenWidth * 10.0, // 80% of screen width
+                          height: screenHeight * 0.5, // 50% of screen height
+                          width: screenWidth * 10, // 80% of screen width
                           child: Image.asset(
                             onboardingContents[index].image,
                             fit: BoxFit.fill,
                           ),
                         ),
                         Positioned(
-                          top: screenHeight * 0.45, // 40% of screen height
+                          top: screenHeight * 0.45, // 45% of screen height
                           left: screenWidth * 0.3, // 30% of screen width
                           child: Row(
                             children: <Widget>[
@@ -159,16 +159,28 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 ),
               ),
             ),
-            Expanded(
-              flex: 1,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Column(
-                  children: [
-                    currentPage == onboardingContents.length - 1
-                        ? Expanded(
-                            child: MyTextButton(
-                              buttonName: 'Commencer',
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                children: [
+                  currentPage == onboardingContents.length - 1
+                      ? MyTextButton(
+                          buttonName: 'Commencer',
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const MyHomePage(),
+                              ),
+                            );
+                          },
+                          bgColor: kPrimaryColor,
+                        )
+                      : Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            OnBoardNavBtn(
+                              name: 'Passer',
                               onPressed: () {
                                 Navigator.push(
                                   context,
@@ -177,36 +189,19 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                                   ),
                                 );
                               },
-                              bgColor: kPrimaryColor,
                             ),
-                          )
-                        : Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              OnBoardNavBtn(
-                                name: 'Passer',
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => const MyHomePage(),
-                                    ),
-                                  );
-                                },
-                              ),
-                              OnBoardNavBtn(
-                                name: 'Suivant',
-                                onPressed: () {
-                                  _pageController.nextPage(
-                                    duration: const Duration(milliseconds: 400),
-                                    curve: Curves.easeInOut,
-                                  );
-                                },
-                              )
-                            ],
-                          ),
-                  ],
-                ),
+                            OnBoardNavBtn(
+                              name: 'Suivant',
+                              onPressed: () {
+                                _pageController.nextPage(
+                                  duration: const Duration(milliseconds: 400),
+                                  curve: Curves.easeInOut,
+                                );
+                              },
+                            )
+                          ],
+                        ),
+                ],
               ),
             )
           ],
