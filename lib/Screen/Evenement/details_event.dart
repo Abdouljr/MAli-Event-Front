@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:front_mali_event/Screen/postes/stories_widget.dart';
 
 class DetailsEvent extends StatefulWidget {
   const DetailsEvent({super.key});
@@ -11,7 +12,7 @@ class _DetailsEventState extends State<DetailsEvent> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    Color texte = Color(0xFF0167E4);
+    Color texte = const Color(0xFF0167E4);
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -22,8 +23,12 @@ class _DetailsEventState extends State<DetailsEvent> {
         child: Column(
           children: [
             Container(
-              color: Colors.deepPurple,
-              height: size.height * .4,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("assets/images/sdiki.jpeg"),
+                    fit: BoxFit.cover),
+              ),
+              height: size.height * .28,
               padding: const EdgeInsets.only(left: 15, right: 15, top: 40),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -33,7 +38,7 @@ class _DetailsEventState extends State<DetailsEvent> {
                       width: 40,
                       height: 40,
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(195, 255, 255, 255),
+                        color: const Color.fromARGB(195, 255, 255, 255),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: const Icon(Icons.arrow_back_ios),
@@ -80,13 +85,13 @@ class _DetailsEventState extends State<DetailsEvent> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
+                        SizedBox(
                           width: size.width * .65,
-                          child: Column(
+                          child: const Column(
                             //mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text(
+                              Text(
                                 'Kanté',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
@@ -94,14 +99,18 @@ class _DetailsEventState extends State<DetailsEvent> {
                                     fontSize: 22,
                                     fontWeight: FontWeight.bold),
                               ),
+                              SizedBox(
+                                height: 10,
+                              ),
                               Row(
-                                children: const [
+                                children: [
                                   Icon(
                                     Icons.place,
                                     color: Colors.white,
                                   ),
                                   SizedBox(
                                     width: 5,
+                                    height: 10,
                                   ),
                                   Text(
                                     'Place de la cinquantenaire',
@@ -115,11 +124,11 @@ class _DetailsEventState extends State<DetailsEvent> {
                             ],
                           ),
                         ),
-                        Expanded(
+                        const Expanded(
                             child: Column(
                           children: [
                             Row(
-                              children: const [
+                              children: [
                                 Icon(
                                   Icons.calendar_month_sharp,
                                   color: Colors.white,
@@ -137,7 +146,7 @@ class _DetailsEventState extends State<DetailsEvent> {
                               ],
                             ),
                             Row(
-                              children: const [
+                              children: [
                                 Icon(
                                   Icons.timer_sharp,
                                   color: Colors.white,
@@ -179,10 +188,26 @@ class _DetailsEventState extends State<DetailsEvent> {
                       SizedBox(
                         width: size.width * .02,
                       ),
+                      Container(
+                        width: 10,
+                        child: Divider(
+                          color: texte,
+                          thickness: 15,
+                          endIndent: 7,
+                        ),
+                      ),
                       Text("Carte: ", style: TextStyle(color: texte)),
                       Text("5000 F ", style: TextStyle(color: Colors.white)),
                       SizedBox(
                         width: size.width * .02,
+                      ),
+                      Container(
+                        width: 10,
+                        child: Divider(
+                          color: texte,
+                          thickness: 15,
+                          endIndent: 7,
+                        ),
                       ),
                       Text("VIP: ", style: TextStyle(color: texte)),
                       Text("10000 F ", style: TextStyle(color: Colors.white)),
@@ -191,8 +216,8 @@ class _DetailsEventState extends State<DetailsEvent> {
                       height: size.height * .02,
                     ),
 
-                    //=======================================================
-                    //========== Container contenant les parrainages ==========
+                    //===========================================================
+                    //========== Container contenant les parrainages ============
                     const Text(
                       "Parrainage",
                       style: TextStyle(
@@ -201,23 +226,25 @@ class _DetailsEventState extends State<DetailsEvent> {
                     SizedBox(
                       height: size.height * .01,
                     ),
-                    Row(children: [
-                      Text("Parrain: ", style: TextStyle(color: texte)),
-                      const Text("Barouni Gambi ",
-                          style: TextStyle(color: Colors.white)),
-                      SizedBox(
-                        width: size.width * .15,
-                      ),
-                      Text("Marraine: ", style: TextStyle(color: texte)),
-                      const Text("Moussou Sora ",
-                          style: TextStyle(color: Colors.white)),
-                    ]),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("Parrain: ", style: TextStyle(color: texte)),
+                          const Text("Barouni Gambi ",
+                              style: TextStyle(color: Colors.white)),
+                          SizedBox(
+                            width: size.height * .018,
+                          ),
+                          Text("Marraine: ", style: TextStyle(color: texte)),
+                          const Text("Moussou Sora ",
+                              style: TextStyle(color: Colors.white)),
+                        ]),
                     SizedBox(
                       height: size.height * .02,
                     ),
 
-                    //===========================================================
-                    //========== Container contenant la description =============
+                    //=======================================================
+                    //========== Container contenant la description ===========
                     const Text(
                         "Moussou Sorahdzkzeggggggggghhhhhhhhhhhh dddddddddddddgddgd fffd ",
                         style: TextStyle(color: Colors.white)),
@@ -226,10 +253,10 @@ class _DetailsEventState extends State<DetailsEvent> {
                       height: size.height * .02,
                     ),
 
-                    //=======================================================
+                    //==============================================================
                     //========== Container contenant les artistes invites ===========
                     const Text(
-                      "Parrainage",
+                      "Artistes Invités",
                       style: TextStyle(
                           fontWeight: FontWeight.w800, color: Colors.white),
                     ),
@@ -241,6 +268,17 @@ class _DetailsEventState extends State<DetailsEvent> {
                         Text("Moussou Sora ", style: TextStyle(color: texte)),
                         SizedBox(
                           width: size.width * .02,
+                        ),
+                        Container(
+                          width: 10,
+                          child: Divider(
+                            color: texte,
+                            thickness: 5,
+                            endIndent: 1,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 5,
                         ),
                         Text("Moussou Sora ", style: TextStyle(color: texte)),
                         SizedBox(
@@ -255,7 +293,7 @@ class _DetailsEventState extends State<DetailsEvent> {
                     //=======================================================
                     //========== Container contenant les Sponsors ===========
                     const Text(
-                      "Parrainage",
+                      "Sponsors",
                       style: TextStyle(
                           fontWeight: FontWeight.w800, color: Colors.white),
                     ),
@@ -263,16 +301,7 @@ class _DetailsEventState extends State<DetailsEvent> {
                       height: size.height * .01,
                     ),
 
-                    Row(children: [
-                      Container(
-                        width: size.width * .15,
-                        height: 40,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                      )
-                    ])
+                    Storieswidget()
                   ],
                 ),
               ),
