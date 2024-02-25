@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyCfjXfQKFXv3vithGh6R8VlaeqJaO9oXtA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>586381566754</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.frontMaliEvent</string>
+	<key>PROJECT_ID</key>
+	<string>mali-event-3923b</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mali-event-3923b.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:586381566754:ios:62195cdab5a0fc2a07bb7b</string>
+</dict>
+</plist>

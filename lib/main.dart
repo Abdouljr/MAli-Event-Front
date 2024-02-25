@@ -1,5 +1,7 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:front_mali_event/Screen/Favories/favorie%20artiste/favorie_artiste.dart';
+import 'package:front_mali_event/firebase_options.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'Screen/Evenement/Home_event.dart';
 import 'Screen/postes/post.dart';
@@ -7,11 +9,13 @@ import 'Screen/profil/profil.dart';
 import 'package:front_mali_event/Screen/app_styles.dart';
 import 'package:front_mali_event/Screen/onboarding_page.dart';
 
-
 bool? seenOnboard;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   SharedPreferences prefs = await SharedPreferences.getInstance();
   bool? seenOnboard = prefs.getBool('seenOnboard');
   runApp(MyApp(seenOnboard: seenOnboard));
@@ -35,8 +39,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -171,5 +173,3 @@ class _BarreDeNavigationState extends State<BarreDeNavigation> {
     );
   }
 }
-
-
