@@ -1,14 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:front_mali_event/config.dart';
-import 'package:front_mali_event/models/utilisateur.dart';
+import 'package:front_mali_event/models/utilisateur.model.dart';
 
 class UtilisateurService {
 
   //-------------------- AJOUTER UN UTILISATEUR ---------------------------------
-  Future<void> add(Utilisateur utilisateur, String role) async {
+  Future<void> add(Utilisateur utilisateur, String roleUid) async {
     final docUtilisateur = Refference().utilisateurs.doc(utilisateur.uid);
     utilisateur.uid = docUtilisateur.id;
-    utilisateur.role = Refference().roles.doc(role);
+    utilisateur.role = Refference().roles.doc(roleUid);
     return await docUtilisateur.set(utilisateur.toMap());
   }
 

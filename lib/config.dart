@@ -24,4 +24,10 @@ class Refference {
   final CollectionReference utilisateurs =
       FirebaseFirestore.instance.collection("utilisateurs");
 
+  final CollectionReference typeEvenements =
+        FirebaseFirestore.instance.collection("typeEvenements");
+
+  final CollectionReference evenements =
+      FirebaseFirestore.instance.collection("evenements");
+
 }

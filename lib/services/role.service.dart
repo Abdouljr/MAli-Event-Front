@@ -1,12 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:front_mali_event/config.dart';
-import 'package:front_mali_event/models/role.dart';
+import 'package:front_mali_event/models/role.model.dart';
 
 class RoleService {
 
   //-------------------- AJOUTER UNE ROLE ---------------------------------
   Future<void> add(Role role) async {
-    final docRole = Refference().roles.doc(role.uid);
+    final docRole = Refference().roles.doc();
     role.uid = docRole.id;
     return await docRole.set(role.toMap());
   }
