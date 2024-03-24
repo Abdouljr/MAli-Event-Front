@@ -5,13 +5,13 @@ import '../models/evenement.model.dart';
 
 class EvenementService {
   //-------------------- AJOUTER UN EVENEMENT ----------------------------------
-  Future<void> add(Evenement evenement, String typeEvenementUid) async {
+  Future<void> add(Evenement evenement, String lieuxUid, String typeEvenementUid) async {
     try {
       evenement.validateDate();
       final docEvenement = Refference().evenements.doc(evenement.uid);
       evenement.uid = docEvenement.id;
-      evenement.typeEvenement =
-          Refference().typeEvenements.doc(typeEvenementUid);
+      evenement.typeEvenement = Refference().typeEvenements.doc(typeEvenementUid);
+      evenement.lieu = Refference().lieux.doc(lieuxUid);
       return await docEvenement.set(evenement.toMap());
     } catch (e) {
       debugPrint("Erreur : $e");

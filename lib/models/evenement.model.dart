@@ -5,6 +5,7 @@ class Evenement {
   String description;
   Timestamp dateDebut;
   Timestamp dateFin;
+  DocumentReference lieu;
   DocumentReference typeEvenement;
 
   Evenement({
@@ -12,6 +13,7 @@ class Evenement {
     required this.description,
     required this.dateDebut,
     required this.dateFin,
+    required this.lieu,
     required this.typeEvenement,
   });
 
@@ -21,6 +23,7 @@ class Evenement {
       description: data['description'] ?? '',
       dateDebut: data['dateDebut'],
       dateFin: data['dateFin'],
+      lieu: data['lieu'],
       typeEvenement: data['typeEvenement'],
     );
   }
@@ -31,6 +34,7 @@ class Evenement {
       'description': description,
       'dateDebut': dateDebut,
       'dateFin': dateFin,
+      'lieu': lieu,
       'typeEvenement': typeEvenement,
     };
   }
