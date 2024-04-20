@@ -3,7 +3,6 @@ import 'package:front_mali_event/config.dart';
 import 'package:front_mali_event/models/utilisateur.model.dart';
 
 class UtilisateurService {
-
   //-------------------- AJOUTER UN UTILISATEUR ---------------------------------
   Future<void> add(Utilisateur utilisateur, String roleUid) async {
     final docUtilisateur = Refference().utilisateurs.doc(utilisateur.uid);
@@ -11,7 +10,6 @@ class UtilisateurService {
     utilisateur.role = Refference().roles.doc(roleUid);
     return await docUtilisateur.set(utilisateur.toMap());
   }
-
 
 //-------------------- MODIFIER UN UTILISATEUR ---------------------------------
   void update(Utilisateur utilisateur) async {
@@ -21,7 +19,7 @@ class UtilisateurService {
 
 //-------------------- RECUPERER UN UTILISATEUR ---------------------------------
   Future<Utilisateur> get(String uid) async {
-    final utilisateur =  await Refference().utilisateurs.doc(uid).get();
+    final utilisateur = await Refference().utilisateurs.doc(uid).get();
     Map<String, dynamic> data = utilisateur.data() as Map<String, dynamic>;
     return Utilisateur.fromMap(data);
   }

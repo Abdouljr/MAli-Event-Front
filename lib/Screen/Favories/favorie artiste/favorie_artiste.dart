@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:front_mali_event/widget/ArtistFavorie_item.dart';
 import 'package:front_mali_event/widget/fav%20titre.dart';
-import 'package:front_mali_event/widget/favorie_item.dart';
-
-import '../../../widget/entete_titre_icon.dart';
 
 class ArtisteFav extends StatelessWidget {
   const ArtisteFav({super.key});
