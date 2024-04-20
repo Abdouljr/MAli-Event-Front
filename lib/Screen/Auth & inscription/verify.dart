@@ -38,7 +38,7 @@ class _MyVerifyState extends State<MyVerify> {
         color: Color.fromRGBO(234, 239, 243, 1),
       ),
     );
-    var code="";
+    var code = "";
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -91,14 +91,14 @@ class _MyVerifyState extends State<MyVerify> {
                 // defaultPinTheme: defaultPinTheme,
                 // focusedPinTheme: focusedPinTheme,
                 // submittedPinTheme: submittedPinTheme,
-                onChanged: (value){
-                  code= value;
+                onChanged: (value) {
+                  code = value;
                 },
 
                 showCursor: true,
-                onCompleted: (pin) => print(pin),
+                onCompleted: (pin) => debugPrint(pin),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               SizedBox(
@@ -106,29 +106,29 @@ class _MyVerifyState extends State<MyVerify> {
                 height: 45,
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        primary: Colors.green.shade600,
+                        backgroundColor: Colors.green.shade600,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10))),
                     onPressed: () async {
                       // Create a PhoneAuthCredential with the code
 
-                      try{
-                         PhoneAuthCredential credential =
-                          PhoneAuthProvider.credential(
-                              verificationId: Authentification.verify, smsCode: code);
+                      try {
+                        PhoneAuthCredential credential =
+                            PhoneAuthProvider.credential(
+                                verificationId: Authentification.verify,
+                                smsCode: code);
 
-                      // Sign the user in (or link) with the credential
-                      await auth.signInWithCredential(credential);
+                        // Sign the user in (or link) with the credential
+                        await auth.signInWithCredential(credential);
                         Navigator.push(
-                        context, MaterialPageRoute(
-                          builder: (_) => const AccueilEvent(),
-                        ),
-                      );
-                      }catch(e){
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const AccueilEvent(),
+                          ),
+                        );
+                      } catch (e) {
                         print(" une erreur s'est produites");
                       }
-
-                     
                     },
                     child: Text("Verify Phone Number")),
               ),

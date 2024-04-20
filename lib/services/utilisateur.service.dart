@@ -1,18 +1,20 @@
-  import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:front_mali_event/config.dart';
+import 'package:front_mali_event/constants/constant.dart';
 import 'package:front_mali_event/models/utilisateur.model.dart';
 
 class UtilisateurService {
   //-------------------- AJOUTER UN UTILISATEUR ---------------------------------
-  Future<void> add(Utilisateur utilisateur, String roleUid) async {
+  Future<void> add(Utilisateur utilisateur, RoleEnum role) async {
     final docUtilisateur = Refference().utilisateurs.doc();
     utilisateur.uid = docUtilisateur.id;
-    utilisateur.role = Refference().roles.doc(roleUid);
+    utilisateur.role = getRole(role);
     return await docUtilisateur.set(utilisateur.toMap());
   }
 
 //-------------------- MODIFIER UN UTILISATEUR ---------------------------------
-  void update(Utilisateur utilisateur) async {
+  void update(Utilisateur utilisateur, RoleEnum role) async {
+    utilisateur.role = getRole(role);
     final docUtilisateur = Refference().utilisateurs.doc(utilisateur.uid);
     await docUtilisateur.update(utilisateur.toMap());
   }

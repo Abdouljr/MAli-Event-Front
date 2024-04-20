@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:front_mali_event/Screen/Auth%20&%20inscription/inscription.dart';
 import 'package:front_mali_event/Screen/Favories/favorie%20artiste/favorie_artiste.dart';
-import 'package:front_mali_event/firebase_options.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'Screen/Evenement/Home_event.dart';
 import 'Screen/postes/post.dart';
@@ -27,10 +27,9 @@ void main() async {
     runApp(MyApp(seenOnboard: seenOnboard));
   } on FirebaseException catch (error) {
     // Handle Firebase initialization errors gracefully
-    print("Firebase initialization error: $error");
+    debugPrint("Firebase initialization error: $error");
   }
 }
-
 
 class MyApp extends StatelessWidget {
   final bool? seenOnboard;

@@ -17,7 +17,6 @@ class _Color {
 }
 
 class Refference {
-
   final CollectionReference roles =
       FirebaseFirestore.instance.collection("roles");
 
@@ -25,7 +24,7 @@ class Refference {
       FirebaseFirestore.instance.collection("utilisateurs");
 
   final CollectionReference typeEvenements =
-        FirebaseFirestore.instance.collection("typeEvenements");
+      FirebaseFirestore.instance.collection("typeEvenements");
 
   final CollectionReference evenements =
       FirebaseFirestore.instance.collection("evenements");
@@ -34,8 +33,11 @@ class Refference {
       FirebaseFirestore.instance.collection("lieux");
 
   final CollectionReference publications =
-  FirebaseFirestore.instance.collection("publications");
+      FirebaseFirestore.instance.collection("publications");
 
   final CollectionReference commentaires =
-    FirebaseFirestore.instance.collection("commentaires");
+      FirebaseFirestore.instance.collection("commentaires");
+
+  final CollectionReference notifications =
+      FirebaseFirestore.instance.collection("notifications");
 }
