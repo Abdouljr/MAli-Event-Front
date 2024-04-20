@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:front_mali_event/Screen/Auth%20&%20inscription/authentification.dart';
+import 'package:front_mali_event/models/utilisateur.model.dart';
+import 'package:front_mali_event/services/utilisateur.service.dart';
 
 class Inscription extends StatefulWidget {
   const Inscription({super.key});
 
   @override
   State<Inscription> createState() => _InscriptionState();
+
+
 }
 
 class _InscriptionState extends State<Inscription> {
+    final userService = UtilisateurService();
+
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
       backgroundColor: const Color(0xFF0F2D42),
       body: Padding(
@@ -157,6 +165,9 @@ class _InscriptionState extends State<Inscription> {
                   ),
                   ElevatedButton(
                     onPressed: () {
+
+                      Utilisateur utilisateur = Utilisateur(prenom: "Mamdy", nom: "Camara", numero: "79522067", email: "mamdy@diaby.com");
+                      userService.add(utilisateur, "wYQn3qWV9sx0UAiYGlU4");
                       Navigator.push(
                           context,
                           MaterialPageRoute(
