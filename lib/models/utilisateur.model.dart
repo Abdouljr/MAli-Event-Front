@@ -8,11 +8,13 @@ class Utilisateur {
   DocumentReference role;
 
   Utilisateur(
-      {required this.uid,
+      {
+      required this.uid,
       required this.prenom,
       required this.nom,
       required this.email,
-      required this.role});
+      required this.role
+      });
 
   factory Utilisateur.fromMap(Map<String, dynamic> data) {
     return Utilisateur(

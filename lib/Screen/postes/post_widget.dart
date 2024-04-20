@@ -82,7 +82,7 @@ class Postwidget extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-             Row(
+            Row(
               children: <Widget>[
                 CircleAvatar(
                   radius: 30,
@@ -105,8 +105,7 @@ class Postwidget extends StatelessWidget {
                       // You can replace the below line with your desired navigation logic
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (_) => DetailsArtiste()),
+                        MaterialPageRoute(builder: (_) => DetailsArtiste()),
                       );
                     },
                     child: Column(
@@ -141,7 +140,9 @@ class Postwidget extends StatelessWidget {
             const Text(
               'Album en cours preparez-vous les fans',
               style: TextStyle(
-                  fontSize: 16, fontWeight: FontWeight.w300, color: Colors.white),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w300,
+                  color: Colors.white),
             ),
             const SizedBox(
               height: 5,
@@ -183,8 +184,8 @@ class Postwidget extends StatelessWidget {
                       SizedBox(
                           width: 40,
                           child: IconButton(
-                            icon:
-                                const FaIcon(FontAwesomeIcons.comment, size: 22),
+                            icon: const FaIcon(FontAwesomeIcons.comment,
+                                size: 22),
                             // onPressed: () {
                             //   debugPrint("Bouton commenter");
                             // }
@@ -198,21 +199,20 @@ class Postwidget extends StatelessWidget {
                       SizedBox(
                           width: 40,
                           child: IconButton(
-                              icon: const FaIcon(
-                                FontAwesomeIcons.paperPlane,
-                                size: 22,
-                              ),
-                              // onPressed: () {
-                              //   debugPrint("Bouton partager");
-                              // }
-                                                          onPressed: () {
+                            icon: const FaIcon(
+                              FontAwesomeIcons.paperPlane,
+                              size: 22,
+                            ),
+                            // onPressed: () {
+                            //   debugPrint("Bouton partager");
+                            // }
+                            onPressed: () {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (_) => const Inscription()));
                             },
-
-                              )),
+                          )),
                     ],
                   ),
                   Container(

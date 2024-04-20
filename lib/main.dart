@@ -12,14 +12,25 @@ import 'package:front_mali_event/Screen/onboarding_page.dart';
 bool? seenOnboard;
 
 void main() async {
+  // Ensure WidgetsFlutterBinding is initialized only once
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  bool? seenOnboard = prefs.getBool('seenOnboard');
-  runApp(MyApp(seenOnboard: seenOnboard));
+
+  try {
+    // Initialize Firebase
+    await Firebase.initializeApp();
+
+    // Retrieve onboarding status from SharedPreferences
+    final prefs = await SharedPreferences.getInstance();
+    final bool? seenOnboard = prefs.getBool('seenOnboard');
+
+    // Run the main application
+    runApp(MyApp(seenOnboard: seenOnboard));
+  } on FirebaseException catch (error) {
+    // Handle Firebase initialization errors gracefully
+    print("Firebase initialization error: $error");
+  }
 }
+
 
 class MyApp extends StatelessWidget {
   final bool? seenOnboard;
