@@ -20,6 +20,7 @@ dependencies:
   cloud_firestore: ^4.15.5
   firebase_auth: 4.17.8
   pinput: ^4.0.0
+  crypto: ^3.0.3
 
 flutter_native_splash:
   background_image: "assets/images/first.png"

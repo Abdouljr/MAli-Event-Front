@@ -8,6 +8,7 @@ enum Actions {
 enum RoleEnum {
   admin,
   artiste,
+  
 }
 
 String getType(Actions action) {

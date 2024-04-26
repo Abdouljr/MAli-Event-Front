@@ -35,4 +35,26 @@ class UtilisateurService {
       }).toList();
     });
   }
+
+  //-------------------- VERIFIER SI LE NUMERO EXISTE DEJA ----------------------
+  Future<bool> checkNumeroExists(String numero) async {
+    final querySnapshot = await Refference()
+        .utilisateurs
+        .where('numero', isEqualTo: numero)
+        .limit(1)
+        .get();
+
+    return querySnapshot.docs.isNotEmpty;
+  }
+
+  //-------------------- VERIFIER SI L'EMAIL EXISTE DEJA -----------------------
+  Future<bool> checkEmailExists(String email) async {
+    final querySnapshot = await Refference()
+        .utilisateurs
+        .where('email', isEqualTo: email)
+        .limit(1)
+        .get();
+
+    return querySnapshot.docs.isNotEmpty;
+  }
 }

@@ -41,7 +41,7 @@ class _AuthentificationState extends State<Authentification> {
                 const Text(
                   "Connexions",
                   style: TextStyle(
-                    fontSize: 30,
+                    fontSize: 40,
                     color: Color(0xFF0094ED),
                     fontWeight: FontWeight.bold,
                   ),
@@ -52,7 +52,7 @@ class _AuthentificationState extends State<Authentification> {
                 const Text(
                   "Votre aventure commence ici",
                   style: TextStyle(
-                    fontSize: 22,
+                    fontSize: 18,
                     color: Colors.white,
                     fontWeight: FontWeight.w400,
                   ),
@@ -60,7 +60,7 @@ class _AuthentificationState extends State<Authentification> {
                 const Text(
                   "connectez-vous pour explorer.",
                   style: TextStyle(
-                    fontSize: 22,
+                    fontSize: 18,
                     color: Colors.white,
                     fontWeight: FontWeight.w400,
                   ),

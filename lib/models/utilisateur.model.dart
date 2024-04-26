@@ -4,6 +4,7 @@ class Utilisateur {
   String? uid;
   String prenom;
   String numero;
+  String password;
   String nom;
   String email;
   DocumentReference? role;
@@ -12,6 +13,7 @@ class Utilisateur {
       {this.uid,
       required this.prenom,
       required this.numero,
+      required this.password,
       required this.nom,
       required this.email,
       this.role});
@@ -21,6 +23,7 @@ class Utilisateur {
       uid: data['uid'],
       prenom: data['prenom'] ?? '',
       numero: data['numero'],
+      password: data['password'],
       nom: data['nom'] ?? '',
       email: data['email'] ?? '',
     );
@@ -31,6 +34,7 @@ class Utilisateur {
       'uid': uid,
       'prenom': prenom,
       'numero': numero,
+      'password': password,
       'nom': nom,
       'email': email,
       'role': role,
