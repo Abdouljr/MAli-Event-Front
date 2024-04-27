@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:front_mali_event/Screen/artistes/publication.dart';
-import 'package:front_mali_event/Screen/postes/post_widget.dart';
+import 'package:front_mali_event/Screen/posts/post_widget.dart';
 
 import 'apropos.dart';
 
@@ -109,9 +109,9 @@ class DetailsArtiste extends StatelessWidget {
                         width: 150,
                         child: ElevatedButton(
                           onPressed: () {},
-                          
                           style: ElevatedButton.styleFrom(
-                            foregroundColor: Colors.white, backgroundColor: Colors.blue,
+                            foregroundColor: Colors.white,
+                            backgroundColor: Colors.blue,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),

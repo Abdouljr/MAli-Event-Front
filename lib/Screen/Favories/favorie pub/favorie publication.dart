@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:front_mali_event/widget/fav%20titre.dart';
-import 'package:front_mali_event/widget/favorie_item.dart';
+import 'package:front_mali_event/Screen/Favories/widgets/fav%20titre.dart';
+import 'package:front_mali_event/Screen/Favories/widgets/favorie_item.dart';
 
 class FavPublication extends StatelessWidget {
   const FavPublication({super.key});

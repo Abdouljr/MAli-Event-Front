@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './size_configs.dart';
+import 'size_configs.dart';
 
 const Color kPrimaryColor = Color(0xFF0094ED);
 const Color kSecondaryColor = Color(0xFF68798B);
@@ -7,7 +7,7 @@ const Color kScaffoldBackground = Color(0xffFFF3E9);
 
 final kTitle = TextStyle(
   fontFamily: 'Klasik',
-  fontSize: SizeConfig.blockSizeH! *8,
+  fontSize: SizeConfig.blockSizeH! * 8,
   fontWeight: FontWeight.w400,
   color: kScaffoldBackground,
 );

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:front_mali_event/Screen/Auth%20&%20inscription/inscription.dart';
 import 'package:front_mali_event/Screen/artistes/details.dart';
-import 'package:front_mali_event/Screen/postes/commentaire.dart';
+import 'package:front_mali_event/Screen/posts/commentaire.dart';
 
 class Postwidget extends StatelessWidget {
   Postwidget({super.key});

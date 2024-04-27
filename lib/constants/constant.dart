@@ -1,4 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+
+const bleu = Color(0xFF0094ED);
+const blanc = Colors.white;
+const grise = Color(0xFF68798B);
+final background = const Color(0xFF0196D5).withOpacity(.5);
 
 enum Actions {
   like,

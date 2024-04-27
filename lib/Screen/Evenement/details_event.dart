@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:front_mali_event/Screen/postes/stories_widget.dart';
+import 'package:front_mali_event/Screen/posts/stories_widget.dart';
 
 class DetailsEvent extends StatefulWidget {
   const DetailsEvent({super.key});
