@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:crypto/crypto.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:front_mali_event/Screen/Auth%20&%20inscription/authentification.dart';
@@ -105,104 +106,125 @@ class _InscriptionState extends State<Inscription> {
     RegExp emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
     return emailRegex.hasMatch(email);
   }
+  
+Future<void> _inscription() async {
+  String nom = _nomController.text;
+  String prenom = _prenomController.text;
+  String email = _emailController.text;
+   String numero = "+223${_numeroController.text}";
+  String password = _passwordController.text;
 
-  Future<void> _inscription() async {
-    String nom = _nomController.text;
-    String prenom = _prenomController.text;
-    String email = _emailController.text;
-    String numero = _numeroController.text;
-    String password = _passwordController.text;
-
-    // Vérifier que les champs ne sont pas vides
-    if (nom.isEmpty ||
-        prenom.isEmpty ||
-        email.isEmpty ||
-        numero.isEmpty ||
-        password.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Veuillez remplir tous les champs.')),
-      );
-      return;
-    }
-
-    // Vérifier si le mot de passe a au moins 6 caractères
-    if (password.length < 6) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-            content: Text('Le mot de passe doit avoir au moins 6 caractères.')),
-      );
-      return;
-    }
-
-    // Vérifier si le mot de passe contient au moins une lettre majuscule, une minuscule et un caractère spécial
-    RegExp upperCase = RegExp(r'[A-Z]');
-    RegExp lowerCase = RegExp(r'[a-z]');
-    RegExp specialChar = RegExp(r'[!@#$%^&*(),.?":{}|<>]');
-
-    if (!upperCase.hasMatch(password) ||
-        !lowerCase.hasMatch(password) ||
-        !specialChar.hasMatch(password)) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-            content: Text(
-                'Le mot de passe doit contenir au moins une lettre majuscule, une minuscule et un caractère spécial.')),
-      );
-      return;
-    }
-
-    if (!isEmailValid(email)) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-            content: Text("Veuillez saisir une adresse e-mail valide.")),
-      );
-      return;
-    }
-// Vérifier l'existence de l'utilisateur avec le même numéro de téléphone
-    bool numeroExists = await userService.checkNumeroExists(numero);
-    if (numeroExists) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-            content: Text(
-                'Un utilisateur avec ce numéro de téléphone existe déjà.')),
-      );
-      return;
-    }
-
-    // Vérifier l'existence de l'utilisateur avec la même adresse e-mail
-    bool emailExists = await userService.checkEmailExists(email);
-    if (emailExists) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-            content:
-                Text('Un utilisateur avec cette adresse e-mail existe déjà.')),
-      );
-      return;
-    }
-     String confirmPassword = _confirmPasswordController.text;
-
-  if (password != confirmPassword) {
+  // Vérifier que les champs ne sont pas vides
+  if (nom.isEmpty ||
+      prenom.isEmpty ||
+      email.isEmpty ||
+      numero.isEmpty ||
+      password.isEmpty) {
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Les mots de passe ne correspondent pas.'),
-      ),
+      const SnackBar(content: Text('Veuillez remplir tous les champs.')),
     );
     return;
   }
-    // Convertir le mot de passe en UTF-8
-    var bytes = utf8.encode(password);
-    // Hasher le mot de passe avec SHA-256
-    var hashPassword = sha256.convert(bytes);
 
-    // Utiliser les valeurs réelles des contrôles de texte
-    Utilisateur utilisateur = Utilisateur(
-      prenom: prenom,
-      nom: nom,
-      numero: numero,
-      email: email,
-      password: hashPassword.toString(),
+  // Vérifier si le mot de passe a au moins 6 caractères
+  if (password.length < 6) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+          content: Text('Le mot de passe doit avoir au moins 6 caractères.')),
     );
-    userService.add(utilisateur, RoleEnum.admin);
+    return;
   }
+
+  // Vérifier si le mot de passe contient au moins une lettre majuscule, une minuscule et un caractère spécial
+  RegExp upperCase = RegExp(r'[A-Z]');
+  RegExp lowerCase = RegExp(r'[a-z]');
+  RegExp specialChar = RegExp(r'[!@#$%^&*(),.?":{}|<>]');
+
+  if (!upperCase.hasMatch(password) ||
+      !lowerCase.hasMatch(password) ||
+      !specialChar.hasMatch(password)) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+          content: Text(
+              'Le mot de passe doit contenir au moins une lettre majuscule, une minuscule et un caractère spécial.')),
+    );
+    return;
+  }
+
+  if (!isEmailValid(email)) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+          content: Text("Veuillez saisir une adresse e-mail valide.")),
+    );
+    return;
+  }
+
+  // Vérifier l'existence de l'utilisateur avec le même numéro de téléphone
+  bool numeroExists = await userService.checkNumeroExists(numero);
+  if (numeroExists) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+          content: Text('Un utilisateur avec ce numéro de téléphone existe déjà.')),
+    );
+    return;
+  }
+
+  // Vérifier l'existence de l'utilisateur avec la même adresse e-mail
+  bool emailExists = await userService.checkEmailExists(email);
+  if (emailExists) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+          content:
+              Text('Un utilisateur avec cette adresse e-mail existe déjà.')),
+    );
+    return;
+  }
+
+  // Demander la vérification du numéro de téléphone via OTP
+  await FirebaseAuth.instance.verifyPhoneNumber(
+    phoneNumber: numero,
+    verificationCompleted: (PhoneAuthCredential credential) async {
+      // Cette fonction est appelée automatiquement si la vérification est complétée automatiquement (par exemple, sur le même appareil)
+      // Vous pouvez ajouter ici le code pour créer l'utilisateur avec le numéro vérifié
+      Utilisateur utilisateur = Utilisateur(
+        prenom: prenom,
+        nom: nom,
+        numero: numero,
+        email: email,
+        password: password, // Assurez-vous de traiter correctement le mot de passe
+      );
+      userService.add(utilisateur, RoleEnum.admin);
+    },
+    verificationFailed: (FirebaseAuthException e) {
+      // Gérer les erreurs de vérification ici
+      print('Erreur de vérification OTP : ${e.message}');
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Erreur de vérification OTP.'),
+        ),
+      );
+    },
+    codeSent: (String verificationId, int? resendToken) {
+      // L'OTP a été envoyé avec succès, vous pouvez maintenant afficher l'interface utilisateur pour saisir le code OTP
+      // Vous pouvez utiliser le verificationId et resendToken pour vérifier le code entré par l'utilisateur
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Code OTP envoyé avec succès.'),
+        ),
+      );
+      // Vous pouvez stocker le verificationId et resendToken pour une utilisation ultérieure
+    },
+    codeAutoRetrievalTimeout: (String verificationId) {
+      // Gérer le timeout de récupération automatique du code OTP ici
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Délai de récupération du code OTP expiré.'),
+        ),
+      );
+    },
+    timeout: const Duration(seconds: 60), // Durée d'attente pour la vérification OTP
+  );
+}
 
   @override
   Widget build(BuildContext context) {
