@@ -5,13 +5,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:front_mali_event/Screen/Auth%20&%20inscription/authentification.dart';
+import 'package:front_mali_event/Screen/Auth%20&%20inscription/otp.dart';
 import 'package:front_mali_event/constants/constant.dart';
 import 'package:front_mali_event/models/utilisateur.model.dart';
 import 'package:front_mali_event/services/utilisateur.service.dart';
 
 class Inscription extends StatefulWidget {
   const Inscription({Key? key}) : super(key: key);
-
+    static String verify = "";
   @override
   State<Inscription> createState() => _InscriptionState();
 }
@@ -25,7 +26,6 @@ class _InscriptionState extends State<Inscription> {
   final TextEditingController _numeroController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController = TextEditingController();
-
 
   @override
   void dispose() {
@@ -52,186 +52,160 @@ class _InscriptionState extends State<Inscription> {
         specialChar.hasMatch(password);
   }
 
-  // void _inscription() {
-  //   String nom = _nomController.text;
-  //   String prenom = _prenomController.text;
-  //   String email = _emailController.text;
-  //   String numero = _numeroController.text;
-  //   String password = _passwordController.text;
-
-  //   // Vérifier si le mot de passe a au moins 6 caractères
-  //   if (password.length < 6) {
-  //     ScaffoldMessenger.of(context).showSnackBar(
-  //       const SnackBar(
-  //         content: Text('Le mot de passe doit avoir au moins 6 caractères.'),
-  //       ),
-  //     );
-  //     return;
-  //   }
-
-  //   // Vérifier si le mot de passe contient au moins une lettre majuscule, une minuscule et un caractère spécial
-  //   RegExp upperCase = RegExp(r'[A-Z]');
-  //   RegExp lowerCase = RegExp(r'[a-z]');
-  //   RegExp specialChar = RegExp(r'[!@#$%^&*(),.?":{}|<>]');
-
-  //   if (!upperCase.hasMatch(password) ||
-  //       !lowerCase.hasMatch(password) ||
-  //       !specialChar.hasMatch(password)) {
-  //     ScaffoldMessenger.of(context).showSnackBar(
-  //       const SnackBar(
-  //         content: Text(
-  //             'Le mot de passe doit contenir au moins une lettre majuscule, une minuscule et un caractère spécial.'),
-  //       ),
-  //     );
-  //     return;
-  //   }
-
-  //   // Convertir le mot de passe en UTF-8
-  //   var bytes = utf8.encode(password);
-  //   // Hasher le mot de passe avec SHA-256
-  //   var hashPassword = sha256.convert(bytes);
-
-  //   // Utiliser les valeurs réelles des contrôles de texte
-  //   Utilisateur utilisateur = Utilisateur(
-  //     prenom: prenom,
-  //     nom: nom,
-  //     numero: numero,
-  //     email: email,
-  //     password: hashPassword.toString(),
-  //   );
-  //   userService.add(utilisateur, RoleEnum.admin);
-  // }
+ 
   bool isEmailValid(String email) {
     // Utiliser une expression régulière pour valider le format de l'e-mail
     RegExp emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
     return emailRegex.hasMatch(email);
   }
-  
-Future<void> _inscription() async {
-  String nom = _nomController.text;
-  String prenom = _prenomController.text;
-  String email = _emailController.text;
-   String numero = "+223${_numeroController.text}";
-  String password = _passwordController.text;
 
-  // Vérifier que les champs ne sont pas vides
-  if (nom.isEmpty ||
-      prenom.isEmpty ||
-      email.isEmpty ||
-      numero.isEmpty ||
-      password.isEmpty) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Veuillez remplir tous les champs.')),
-    );
-    return;
-  }
+  Future<void> _inscription() async {
+    String nom = _nomController.text;
+    String prenom = _prenomController.text;
+    String email = _emailController.text;
+    String numero = "+223${_numeroController.text}";
+    String password = _passwordController.text;
 
-  // Vérifier si le mot de passe a au moins 6 caractères
-  if (password.length < 6) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-          content: Text('Le mot de passe doit avoir au moins 6 caractères.')),
-    );
-    return;
-  }
-
-  // Vérifier si le mot de passe contient au moins une lettre majuscule, une minuscule et un caractère spécial
-  RegExp upperCase = RegExp(r'[A-Z]');
-  RegExp lowerCase = RegExp(r'[a-z]');
-  RegExp specialChar = RegExp(r'[!@#$%^&*(),.?":{}|<>]');
-
-  if (!upperCase.hasMatch(password) ||
-      !lowerCase.hasMatch(password) ||
-      !specialChar.hasMatch(password)) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-          content: Text(
-              'Le mot de passe doit contenir au moins une lettre majuscule, une minuscule et un caractère spécial.')),
-    );
-    return;
-  }
-
-  if (!isEmailValid(email)) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-          content: Text("Veuillez saisir une adresse e-mail valide.")),
-    );
-    return;
-  }
-
-  // Vérifier l'existence de l'utilisateur avec le même numéro de téléphone
-  bool numeroExists = await userService.checkNumeroExists(numero);
-  if (numeroExists) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-          content: Text('Un utilisateur avec ce numéro de téléphone existe déjà.')),
-    );
-    return;
-  }
-
-  // Vérifier l'existence de l'utilisateur avec la même adresse e-mail
-  bool emailExists = await userService.checkEmailExists(email);
-  if (emailExists) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-          content:
-              Text('Un utilisateur avec cette adresse e-mail existe déjà.')),
-    );
-    return;
-  }
-
-  // Demander la vérification du numéro de téléphone via OTP
-  await FirebaseAuth.instance.verifyPhoneNumber(
-    phoneNumber: numero,
-    verificationCompleted: (PhoneAuthCredential credential) async {
-      // Cette fonction est appelée automatiquement si la vérification est complétée automatiquement (par exemple, sur le même appareil)
-      // Vous pouvez ajouter ici le code pour créer l'utilisateur avec le numéro vérifié
-      Utilisateur utilisateur = Utilisateur(
-        prenom: prenom,
-        nom: nom,
-        numero: numero,
-        email: email,
-        password: password, // Assurez-vous de traiter correctement le mot de passe
+    // Vérifier que les champs ne sont pas vides
+    if (nom.isEmpty ||
+        prenom.isEmpty ||
+        email.isEmpty ||
+        numero.isEmpty ||
+        password.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Veuillez remplir tous les champs.')),
       );
-      userService.add(utilisateur, RoleEnum.admin);
-    },
-    verificationFailed: (FirebaseAuthException e) {
-      // Gérer les erreurs de vérification ici
-      print('Erreur de vérification OTP : ${e.message}');
+      return;
+    }
+
+    // Vérifier si le mot de passe a au moins 6 caractères
+    if (password.length < 6) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Erreur de vérification OTP.'),
-        ),
+            content: Text('Le mot de passe doit avoir au moins 6 caractères.')),
       );
-    },
-    codeSent: (String verificationId, int? resendToken) {
-      // L'OTP a été envoyé avec succès, vous pouvez maintenant afficher l'interface utilisateur pour saisir le code OTP
-      // Vous pouvez utiliser le verificationId et resendToken pour vérifier le code entré par l'utilisateur
+      return;
+    }
+
+    // Vérifier si le mot de passe contient au moins une lettre majuscule, une minuscule et un caractère spécial
+    RegExp upperCase = RegExp(r'[A-Z]');
+    RegExp lowerCase = RegExp(r'[a-z]');
+    RegExp specialChar = RegExp(r'[!@#$%^&*(),.?":{}|<>]');
+
+    if (!upperCase.hasMatch(password) ||
+        !lowerCase.hasMatch(password) ||
+        !specialChar.hasMatch(password)) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Code OTP envoyé avec succès.'),
-        ),
+            content: Text(
+                'Le mot de passe doit contenir au moins une lettre majuscule, une minuscule et un caractère spécial.')),
       );
-      // Vous pouvez stocker le verificationId et resendToken pour une utilisation ultérieure
-    },
-    codeAutoRetrievalTimeout: (String verificationId) {
-      // Gérer le timeout de récupération automatique du code OTP ici
+      return;
+    }
+
+    if (!isEmailValid(email)) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Délai de récupération du code OTP expiré.'),
-        ),
+            content: Text("Veuillez saisir une adresse e-mail valide.")),
       );
-    },
-    timeout: const Duration(seconds: 60), // Durée d'attente pour la vérification OTP
-  );
-}
+      return;
+    }
+
+    // Vérifier l'existence de l'utilisateur avec le même numéro de téléphone
+    bool numeroExists = await userService.checkNumeroExists(numero);
+    if (numeroExists) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content: Text(
+                'Un utilisateur avec ce numéro de téléphone existe déjà.')),
+      );
+      return;
+    }
+
+    // Vérifier l'existence de l'utilisateur avec la même adresse e-mail
+    bool emailExists = await userService.checkEmailExists(email);
+    if (emailExists) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            content:
+                Text('Un utilisateur avec cette adresse e-mail existe déjà.')),
+      );
+      return;
+    }
+
+    // Demander la vérification du numéro de téléphone via OTP
+    await FirebaseAuth.instance.verifyPhoneNumber(
+      phoneNumber: numero,
+      verificationCompleted: (PhoneAuthCredential credential) async {
+        // Cette fonction est appelée automatiquement si la vérification est complétée automatiquement (par exemple, sur le même appareil)
+        // Vous pouvez ajouter ici le code pour créer l'utilisateur avec le numéro vérifié
+        Utilisateur utilisateur = Utilisateur(
+          prenom: prenom,
+          nom: nom,
+          numero: numero,
+          email: email,
+          password:
+              password, // Assurez-vous de traiter correctement le mot de passe
+        );
+        userService.add(utilisateur, RoleEnum.admin);
+      },
+      verificationFailed: (FirebaseAuthException e) {
+        // Gérer les erreurs de vérification ici
+        print('Erreur de vérification OTP : ${e.message}');
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Erreur de vérification OTP.'),
+          ),
+        );
+      },
+      codeSent: (String verificationId, int? resendToken) {
+        // L'OTP a été envoyé avec succès, vous pouvez maintenant afficher l'interface utilisateur pour saisir le code OTP
+        // Vous pouvez utiliser le verificationId et resendToken pour vérifier le code entré par l'utilisateur
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Code OTP envoyé avec succès.'),
+          ),
+        );
+            Inscription.verify = verificationId;
+            //                 Navigator.push(
+            //                   context,
+            //                   MaterialPageRoute(
+            //                     builder: (_) => const Otp(),
+            //                   ),
+            //                 );
+
+                 Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => Otp(
+          prenom: prenom,
+          nom: nom,
+          numero: numero,
+          email: email,
+          password:password, 
+        ),
+      ),
+    );
+        // Vous pouvez stocker le verificationId et resendToken pour une utilisation ultérieure
+      },
+      codeAutoRetrievalTimeout: (String verificationId) {
+        // Gérer le timeout de récupération automatique du code OTP ici
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Délai de récupération du code OTP expiré.'),
+          ),
+        );
+      },
+      timeout: const Duration(
+          seconds: 60), // Durée d'attente pour la vérification OTP
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF0F2D42),
       body: Padding(
-        
         padding: const EdgeInsets.only(top: 80, left: 10, right: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -424,30 +398,28 @@ Future<void> _inscription() async {
             ),
             const SizedBox(height: 1),
             const Text(
-  "Confirmer le mot de passe",
-  style: TextStyle(
-    fontSize: 16,
-    color: Colors.white,
-    fontWeight: FontWeight.w600,
-  ),
-),
-TextFormField(
-  controller: _confirmPasswordController,
-  obscureText: true,
-  style: const TextStyle(color: Colors.white),
-  decoration: InputDecoration(
-    border: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(10),
-      borderSide: BorderSide.none,
-    ),
-    filled: true,
-    fillColor: const Color(0xFF3F5769),
-    hintText: 'Confirmer le mot de passe',
-    hintStyle: const TextStyle(color: Colors.white70),
-  ),
-),
-
-
+              "Confirmer le mot de passe",
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            TextFormField(
+              controller: _confirmPasswordController,
+              obscureText: true,
+              style: const TextStyle(color: Colors.white),
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide.none,
+                ),
+                filled: true,
+                fillColor: const Color(0xFF3F5769),
+                hintText: 'Confirmer le mot de passe',
+                hintStyle: const TextStyle(color: Colors.white70),
+              ),
+            ),
             const SizedBox(
               height: 1,
             ),
