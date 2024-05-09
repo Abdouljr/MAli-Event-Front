@@ -2,6 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:front_mali_event/Screen/Auth%20&%20inscription/forgetPassword.dart';
 import 'package:front_mali_event/Screen/Auth%20&%20inscription/verify.dart';
+import 'package:front_mali_event/Screen/Evenement/Home_event.dart';
+import 'package:front_mali_event/main.dart';
+import 'package:front_mali_event/models/utilisateur.model.dart';
+import 'package:front_mali_event/services/utilisateur.service.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'inscription.dart';
 
@@ -15,6 +20,9 @@ class Authentification extends StatefulWidget {
 class _AuthentificationState extends State<Authentification> {
   TextEditingController countryController = TextEditingController();
   var phone = "";
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _numeroController = TextEditingController();
+  final userService = UtilisateurService();
 
   final _formSignInKey = GlobalKey<FormState>();
   bool rememberPassword = true;
@@ -80,12 +88,13 @@ class _AuthentificationState extends State<Authentification> {
                   height: 5,
                 ),
                 TextFormField(
-                  // validator: (value) {
-                  //   if (value == null || value.isEmpty) {
-                  //     return "Votre numéro s'il vous plait";
-                  //   }
-                  //   return null;
-                  // },
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Votre numéro s'il vous plait";
+                    }
+                    return null;
+                  },
+                  controller: _numeroController,
                   style: const TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                     // label: const Text('Numero de téléphone'),
@@ -124,6 +133,7 @@ class _AuthentificationState extends State<Authentification> {
                   height: 5,
                 ),
                 TextFormField(
+                  controller: _passwordController,
                   obscureText: true,
                   style: const TextStyle(color: Colors.white),
                   decoration: InputDecoration(
@@ -185,53 +195,38 @@ class _AuthentificationState extends State<Authentification> {
                   height: 50,
                   child: ElevatedButton(
                     onPressed: () async {
-                      // if (_formSignInKey.currentState!.validate() &&
-                      //     rememberPassword) {
-                      //   ScaffoldMessenger.of(context).showSnackBar(
-                      //     const SnackBar(
-                      //       content: Text('Processing Data'),
-                      //     ),
-                      //   );
-                      // } else if (!rememberPassword) {
-                      //   ScaffoldMessenger.of(context).showSnackBar(
-                      //     const SnackBar(
-                      //         content: Text(
-                      //             'Please agree to the processing of personal data')),
-                      //   );
-                      // }
-                      // try {
-                      //   await FirebaseAuth.instance.verifyPhoneNumber(
-                      //     phoneNumber: '${countryController.text + phone}',
-                      //     verificationCompleted:
-                      //         (PhoneAuthCredential credential) {
-                      //       // Traitement lorsque la vérification est terminée automatiquement
-                      //       // Navigator.pushNamed(context, 'verify');
-                      //     },
-                      //     verificationFailed: (FirebaseAuthException e) {
-                      //       // Traitement en cas d'échec de la vérification
-                      //       print('Erreur de vérification : ${e.message}');
-                      //     },
-                      //     codeSent: (String verificationId, int? resendToken) {
-                      //       // Traitement après l'envoi du code de vérification
-                      //       // Navigator.pushNamed(context, 'verify', arguments: {
-                      //       //   'verificationId': verificationId,
-                      //       // });
-                      //       Authentification.verify = verificationId;
-                      //       Navigator.push(
-                      //         context,
-                      //         MaterialPageRoute(
-                      //           builder: (_) => const MyVerify(),
-                      //         ),
-                      //       );
-                      //     },
-                      //     codeAutoRetrievalTimeout: (String verificationId) {
-                      //       // Traitement en cas de délai d'attente dépassé
-                      //     },
-                      //   );
-                      // } catch (e) {
-                      //   // Gestion des erreurs générales
-                      //   print('Erreur : $e');
-                      // }
+                      String phoneNumber = _numeroController.text;
+                      String password = _passwordController.text;
+
+                      debugPrint(phoneNumber);
+                      debugPrint(password);
+
+                      // Appelez votre méthode connect avec ces valeurs
+                      Map<String, dynamic>? isConnected =
+                          await userService.connect(phoneNumber, password);
+                      if (isConnected != null) {
+                        // Connecté avec succès, naviguez vers la prochaine page
+                        /// Obtenez l'identifiant de l'utilisateur connecté en toute sécurité
+                        SharedPreferences prefs = await SharedPreferences.getInstance();
+                        await prefs.setString('user', isConnected.toString());
+                        debugPrint(isConnected.toString());
+                        debugPrint(prefs as String?);
+
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                          builder: (context) => const MyHomePage(),
+                          ),
+                        );
+                      } else {
+                        // Affichez un message d'erreur ou gérez l'échec de la connexion
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content:
+                                Text('Identifiant ou mot de passe incorrect'),
+                          ),
+                        );
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.white,

@@ -210,29 +210,29 @@ class _InscriptionState extends State<Inscription> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              "Inscription",
-              style: TextStyle(
-                  fontSize: 24,
-                  color: Color(0xFF0094ED),
-                  fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            const Text("Votre aventure commence ici",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.white,
-                )),
-            const Text("inscrivez-vous pour explorer.",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.white,
-                )),
-            const SizedBox(
-              height: 10,
-            ),
+            // const Text(
+            //   "Inscription",
+            //   style: TextStyle(
+            //       fontSize: 24,
+            //       color: Color(0xFF0094ED),
+            //       fontWeight: FontWeight.bold),
+            // ),
+            // const SizedBox(
+            //   height: 10,
+            // ),
+            // const Text("Votre aventure commence ici",
+            //     style: TextStyle(
+            //       fontSize: 16,
+            //       color: Colors.white,
+            //     )),
+            // const Text("inscrivez-vous pour explorer.",
+            //     style: TextStyle(
+            //       fontSize: 16,
+            //       color: Colors.white,
+            //     )),
+            // const SizedBox(
+            //   height: 10,
+            // ),
             const Text(
               "Numero de telephone",
               style: TextStyle(

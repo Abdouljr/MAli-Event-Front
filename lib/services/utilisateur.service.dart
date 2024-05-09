@@ -57,4 +57,76 @@ class UtilisateurService {
 
     return querySnapshot.docs.isNotEmpty;
   }
+
+
+// Future<bool> connect(String identifiant, String password) async {
+//     // Vérifier d'abord si l'identifiant est un numéro de téléphone ou un email
+//     final isNumero = RegExp(r'^[0-9]+$').hasMatch(identifiant);
+//     QuerySnapshot querySnapshot;
+
+//     if (isNumero) {
+//       // Si c'est un numéro de téléphone, vérifiez s'il existe dans la base de données
+//       querySnapshot = await Refference().utilisateurs.where('numero', isEqualTo: identifiant).limit(1).get();
+//     } else {
+//       // Sinon, vérifiez si c'est un email et s'il existe dans la base de données
+//       querySnapshot = await Refference().utilisateurs.where('email', isEqualTo: identifiant).limit(1).get();
+//     }
+
+//     // Si aucun utilisateur correspondant n'est trouvé, renvoyer false
+//     if (querySnapshot.docs.isEmpty) {
+//       return false;
+//     }
+
+//     // Récupérer l'utilisateur correspondant
+//     final utilisateur = querySnapshot.docs.first.data() as Map<String, dynamic>;
+
+//     // Vérifier si le mot de passe correspond
+//     if (utilisateur['password'] == password) {
+//       return true;
+//     } else {
+//       return false;
+//     }
+//   }
+
+Future<Map<String, dynamic>?> connect(String identifiant, String password) async {
+    // Vérifier d'abord si l'identifiant est un numéro de téléphone ou un email
+    final isNumero = RegExp(r'^[0-9]+$').hasMatch(identifiant);
+    QuerySnapshot querySnapshot;
+
+    if (isNumero) {
+      // Si c'est un numéro de téléphone, vérifiez s'il existe dans la base de données
+      querySnapshot = await Refference().utilisateurs.where('numero', isEqualTo: identifiant).limit(1).get();
+    } else {
+      // Sinon, vérifiez si c'est un email et s'il existe dans la base de données
+      querySnapshot = await Refference().utilisateurs.where('email', isEqualTo: identifiant).limit(1).get();
+    }
+
+    // Si aucun utilisateur correspondant n'est trouvé, renvoyer null
+    if (querySnapshot.docs.isEmpty) {
+      return null;
+    }
+
+    // Récupérer l'utilisateur correspondant
+    final utilisateur = querySnapshot.docs.first.data() as Map<String, dynamic>;
+
+    // Vérifier si le mot de passe correspond
+    if (utilisateur['password'] == password) {
+      return utilisateur;
+    } else {
+      return null;
+    }
+  }
+
+   //-------------------- RECUPERER LES INFORMATIONS DE L'UTILISATEUR CONNECTE --------------------------
+  Future<Utilisateur> getUserInfo(String email) async {
+  final utilisateurDocs = await Refference().utilisateurs.where('email', isEqualTo: email).get();
+  if (utilisateurDocs.docs.isNotEmpty) {
+    final data = utilisateurDocs.docs.first.data() as Map<String, dynamic>;
+    return Utilisateur.fromMap(data);
+  } else {
+    throw Exception('Utilisateur non trouvé');
+  }
+}
+
+
 }
