@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:front_mali_event/Screen/app_styles.dart';
-
+import 'package:front_mali_event/Screen/introduction/app_styles.dart';
 
 class OnBoardNavBtn extends StatelessWidget {
   const OnBoardNavBtn({

@@ -1,13 +1,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:front_mali_event/Screen/Auth%20&%20inscription/inscription.dart';
 import 'package:front_mali_event/Screen/Favories/favorie%20artiste/favorie_artiste.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'Screen/Evenement/Home_event.dart';
-import 'Screen/postes/post.dart';
+import 'Screen/posts/post.dart';
 import 'Screen/profil/profil.dart';
-import 'package:front_mali_event/Screen/app_styles.dart';
-import 'package:front_mali_event/Screen/onboarding_page.dart';
+import 'package:front_mali_event/Screen/introduction/app_styles.dart';
+import 'package:front_mali_event/Screen/introduction/onboarding_page.dart';
 
 bool? seenOnboard;
 

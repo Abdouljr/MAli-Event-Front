@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'notifications.dart';
+import '../../notification/notifications.dart';
 
 class favEntete extends StatelessWidget {
   const favEntete({super.key});
@@ -25,7 +25,7 @@ class favEntete extends StatelessWidget {
             iconSize: 30,
             color: Color(0xFF003F8F),
             onPressed: () {
-             showDialogWidget(context);
+              showDialogWidget(context);
             },
           ),
         ],

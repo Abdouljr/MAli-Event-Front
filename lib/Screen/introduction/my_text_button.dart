@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:front_mali_event/Screen/app_styles.dart';
-import 'package:front_mali_event/Screen/size_configs.dart';
-
-
+import 'package:front_mali_event/Screen/introduction/app_styles.dart';
+import 'package:front_mali_event/Screen/introduction/size_configs.dart';
 
 class MyTextButton extends StatelessWidget {
   const MyTextButton({
@@ -31,7 +29,6 @@ class MyTextButton extends StatelessWidget {
             style: kBodyText1,
           ),
           style: TextButton.styleFrom(
-            
             backgroundColor: bgColor,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),

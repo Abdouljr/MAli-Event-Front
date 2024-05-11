@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:front_mali_event/Screen/app_styles.dart';
-import 'package:front_mali_event/Screen/my_text_button.dart';
-import 'package:front_mali_event/Screen/onboard_data.dart';
-import 'package:front_mali_event/Screen/onboard_nav_btn.dart';
-import 'package:front_mali_event/Screen/size_configs.dart';
+import 'package:front_mali_event/Screen/introduction/app_styles.dart';
+import 'package:front_mali_event/Screen/introduction/my_text_button.dart';
+import 'package:front_mali_event/Screen/introduction/onboard_data.dart';
+import 'package:front_mali_event/Screen/introduction/onboard_nav_btn.dart';
+import 'package:front_mali_event/Screen/introduction/size_configs.dart';
 import 'package:front_mali_event/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -86,7 +86,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                             children: <Widget>[
                               SizedBox(
                                 width: screenWidth * 0.4, // 40% of screen width
-                                height: screenHeight * 0.8, // 80% of screen height
+                                height:
+                                    screenHeight * 0.8, // 80% of screen height
                                 child: ElevatedButton(
                                   onPressed: () {},
                                   style: ElevatedButton.styleFrom(

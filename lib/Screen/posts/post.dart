@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:front_mali_event/Screen/postes/post_widget.dart';
-import 'package:front_mali_event/Screen/postes/stories_widget.dart';
+import 'package:front_mali_event/Screen/posts/post_widget.dart';
+import 'package:front_mali_event/Screen/posts/stories_widget.dart';
+import 'package:front_mali_event/constants/constant.dart';
 
 class PostPage extends StatefulWidget {
   const PostPage({super.key});
@@ -34,12 +35,12 @@ class _PostPageState extends State<PostPage> {
                       children: [
                         const Text(
                           "Posts",
-                          style: TextStyle(color: Colors.white, fontSize: 30),
+                          style: TextStyle(color: blanc, fontSize: 30),
                         ),
                         IconButton(
                           icon: const Icon(Icons.search_sharp),
                           iconSize: 30,
-                          color: Colors.white,
+                          color: blanc,
                           onPressed: () {
                             // MaterialPageRoute(builder: (context))
                           },
